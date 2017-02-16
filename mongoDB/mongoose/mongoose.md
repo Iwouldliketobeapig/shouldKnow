@@ -108,3 +108,18 @@ Entity : 由Module创建的实体，操作也会影响到数据库；
         }
     } ) ;
 ```
+
+#### 二、point小记
+
+###### 1.Schema—数据库原形
+
+1.1 定义Schema对象
+
+```text
+    let PersonScheam = new Schema ( {
+        name : String ,
+        xxx : yyy
+        //xxx表示定义一个属性,yyy表示属性类型
+    } ) ;
+```
+
