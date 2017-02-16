@@ -6,7 +6,11 @@ Module : 由Schema发布生成的模型，具有抽象属性行为和数据库�
 
 Entity : 由Module创建的实体，操作也会影响到数据库；
 
+#### 对应eg ( https://github.com/Iwouldliketobeapig/User/blob/master/mongooes.js )
+
 ## mongooes小结（待修改）
+
+#### 一、入门操作
 
 1.引入mongooes:
 
@@ -28,4 +32,79 @@ Entity : 由Module创建的实体，操作也会影响到数据库；
         //once open code
     } ) ;
 ```
+4.定义一个储存模型骨架
 
+```text
+    let PersonSchema = new mongooes.Schema ( {
+        name : string , //用户名
+    } ) ;
+```
+
+5.由上面的Schema发布一个模型model
+
+```text
+    let PersonModule = db.module( 'Person' , PersonSchema ) ;
+    //如果Module已经发布，则可以通过名字索引
+    //let PersonModule = db.module ( 'Person' ) ;
+```
+
+6.创建Entity实体
+
+```text
+    let personEntity = new PersonModule( { name : 'dutao' } ) ;
+```
+
+7.执行Entity的save方法，向数据库中添加该条数据
+
+```text
+    personEntity.save()
+```
+
+8.依赖model执行查询
+
+```text
+    PersonModuel.find ( function ( err , person ) {
+        if ( err ) {
+            console.log( '查询失败' ) ;
+        } else {
+            console.log( person ) ;
+        }
+    } ) ;
+```
+
+###### 简单结合
+
+1.添加数据
+```text
+    let db = mongoose.createConnection ( config.host , config.database ) ;
+    db.on ( 'error' , console.error.bind ( console , '连接错误' )  ) ;
+    db.once ( 'open' , function () {
+        console.log( 'success connect' ) ;
+    })  ;
+    let PersonSchema = new mongoose.Schema ( {
+        name : String
+    } ) ;
+    let PersonModel = db.model ( 'Person' , PersonSchema ) ;
+    let personEntity = new PersonModel ( { name : 'liushihao' } ) ;
+    personEntity.save () ;
+```
+
+2.查询数据
+```text
+    let db = mongoose.createConnection ( config.host , config.database ) ;
+    db.on ( 'error' , console.error.bind ( console , '连接错误' )  ) ;
+    db.once ( 'open' , function () {
+        console.log( 'success connect' ) ;
+    })  ;
+    let PersonScheam = new mongoose.Schema ( {
+        name : String
+    } ) ;
+    let PersonModel = db.model ( 'Person' , PersonScheam ) ;
+    PersonModel.find ( function ( erro , person ) {
+        if ( erro ) {
+            console.log ( erro ) ;
+        } else {
+            console.log ( person ) ;
+        }
+    } ) ;
+```
