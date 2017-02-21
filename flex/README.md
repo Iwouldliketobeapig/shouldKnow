@@ -20,6 +20,12 @@
 
 * 容器默认存在两个值：水平的主轴（main axis）和垂直的交叉轴（cross axis） ;
 
+* 住轴开始的位置( 与边框的交叉点 )，叫做main start; 主轴的结束的位置，叫做main end ;
+
+* 交叉轴开始的位置叫cross start; 交叉轴结束的位置叫cross end ;
+
+* 单个项目占据的主轴空间叫
+
 
 
 
