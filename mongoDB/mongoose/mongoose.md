@@ -43,9 +43,9 @@ Entity : 由Module创建的实体，操作也会影响到数据库；
 5.由上面的Schema发布一个模型model
 
 ```text
-    let PersonModule = db.module( 'Person' , PersonSchema ) ;
+    let PersonModule = db.model( 'Person' , PersonSchema ) ;
     //如果Module已经发布，则可以通过名字索引
-    //let PersonModule = db.module ( 'Person' ) ;
+    //let PersonModule = db.model ( 'Person' ) ;
 ```
 
 6.创建Entity实体
@@ -119,7 +119,37 @@ Entity : 由Module创建的实体，操作也会影响到数据库；
     let PersonScheam = new Schema ( {
         name : String ,
         xxx : yyy
-        //xxx表示定义一个属性,yyy表示属性类型
+        //xxx表示定义一个属性,yyy表示属性类型Scheam.Type
     } ) ;
 ```
+
+1.2 Schema.Type : 是由mongooes内定的一些数据类型
+
+1.3 Scheam.Types : 是由mongooes自定义的类型
+
+```text
+    var ExampleSchema = new Schema({
+          name:String,
+          binary:Buffer,
+          living:Boolean,
+          updated:Date,
+          age:Number,
+          mixed:Schema.Types.Mixed, //该混合类型等同于nested
+          _id:Schema.Types.ObjectId,  //主键
+          _fk:Schema.Types.ObjectId,  //外键
+          array:[],
+          arrOfString:[String],
+          arrOfNumber:[Number],
+          arrOfDate:[Date],
+          arrOfBuffer:[Buffer],
+          arrOfBoolean:[Boolean],
+          arrOfMixed:[Schema.Types.Mixed],
+          arrOfObjectId:[Schema.Types.ObjectId]
+          nested:{
+            stuff:String,
+          }
+        });
+```
+
+1.3 Mixed类型 ： Scheam,Types.Mixed自定义的一种混合类型
 
