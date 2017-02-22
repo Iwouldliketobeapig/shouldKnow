@@ -24,8 +24,21 @@
 
 * 交叉轴开始的位置叫cross start; 交叉轴结束的位置叫cross end ;
 
-* 单个项目占据的主轴空间叫
+* 单个项目占据的主轴空间叫main size,占据交叉轴的空间叫cross size ;
 
 
+## 二、容器属性
+
+1.flex-direction 属性决定住轴的方向（即项目的排列方向）；
+
+```text
+    .box {
+        flex-direction : row || row-reverse || column || column-reverse ;
+    }
+```
+* row : 水平主轴方向，起点在左端 ；
+* row-reverse : 水平主轴方向，起点在右端 ；
+* column : 竖直交叉轴方向，起点在上沿 ；
+* column-reverse : 竖直交叉轴方向，起点在下沿 ；
 
 
