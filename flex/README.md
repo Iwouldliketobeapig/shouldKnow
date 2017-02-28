@@ -41,4 +41,27 @@
 * column : 竖直交叉轴方向，起点在上沿 ；
 * column-reverse : 竖直交叉轴方向，起点在下沿 ；
 
+2.flex-wrap 属性决定如何换行 
+
+```text
+    .box {
+        flex-wrap : nowrap || wrap || wrap-reverse
+    }
+```
+
+* nowrap : 不换行（默认值) ;
+* wrap : 换行，且第一行在上方 ;
+* wrap-reverse : 换行，且第一行在下方 ;
+
+3.flex-flow 属性是flex-direction和flex-wrap属性的简写模式
+
+```text
+     .box {
+         flex-flow : <flex-direction> && <flex-wrap>
+     }
+```
+
+4. justify-content属性定义项目在主轴的对齐方式
+
+
 
