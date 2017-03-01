@@ -60,8 +60,30 @@
          flex-flow : <flex-direction> && <flex-wrap>
      }
 ```
-
 4. justify-content属性定义项目在主轴的对齐方式
+
+```text
+    .box {
+        justify-content : flex-start || flex-end || center || space-between || space-around ;
+    }
+```
+* flex-start(默认值) : 左对齐 ；
+* flex-end : 右对齐 ；
+* center : 居中 ； 
+* space-between : 两端对齐，元素之前的间距相等 ；
+* space-around : 每个元素两侧的间距相等。所以，项目之间的间隔比项目与边框的间距大一倍。
+
+5.align-items属性定义项目在交叉轴上如何对齐
+```text
+    .bod {
+        align-items : flex-start || flex-end || center || baseline || stretch
+    }
+```
+* flex-start : 交叉轴的起点对齐；
+* flex-end : 交叉轴的终点对齐；
+* center : 交叉轴居中；
+* baseline : 元素的第一行文字的基线对齐；
+* stretch(默认值) : 如果元素没有设置高度或者设为auto，元素的高度将占满整个容器的高度；
 
 
 
