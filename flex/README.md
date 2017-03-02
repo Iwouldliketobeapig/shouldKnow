@@ -18,9 +18,9 @@
 
 * 采用Flex布局的元素，称为Flex容器；
 
-* 容器默认存在两个值：水平的主轴（main axis）和垂直的交叉轴（cross axis） ;
+* 容器**默认**存在两个值：水平的主轴（main axis）和垂直的交叉轴（cross axis） ;
 
-* 住轴开始的位置( 与边框的交叉点 )，叫做main start; 主轴的结束的位置，叫做main end ;
+* 主轴开始的位置( 与边框的交叉点 )，叫做main start; 主轴的结束的位置，叫做main end ;
 
 * 交叉轴开始的位置叫cross start; 交叉轴结束的位置叫cross end ;
 
@@ -40,7 +40,7 @@
 * row-reverse : 水平主轴方向，起点在右端 ；
 * column : 竖直交叉轴方向，起点在上沿 ；
 * column-reverse : 竖直交叉轴方向，起点在下沿 ；
-
+（**主轴的方向和是可以改变的**）
 2.flex-wrap 属性决定如何换行 
 
 ```text
@@ -84,6 +84,8 @@
 * center : 交叉轴居中；
 * baseline : 元素的第一行文字的基线对齐；
 * stretch(默认值) : 如果元素没有设置高度或者设为auto，元素的高度将占满整个容器的高度；
+
+
 
 
 
