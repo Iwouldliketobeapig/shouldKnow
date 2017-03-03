@@ -33,7 +33,7 @@
 
 ## 二、容器属性
 
-######1.flex-direction 属性决定住轴的方向（即项目的排列方向）；
+###### 1.flex-direction 属性决定住轴的方向（即项目的排列方向）；
 
 ```text
 .box {
@@ -45,7 +45,8 @@
 * column : 竖直交叉轴方向，起点在上沿 ；
 * column-reverse : 竖直交叉轴方向，起点在下沿 ；
 （**主轴的方向和是可以改变的**）
-######2.flex-wrap 属性决定如何换行 
+
+###### 2.flex-wrap 属性决定如何换行 
 
 ```text
 .box {
@@ -57,7 +58,7 @@
 * wrap : 换行，且第一行在上方 ;
 * wrap-reverse : 换行，且第一行在下方 ;
 
-######3.flex-flow 属性是flex-direction和flex-wrap属性的简写模式
+###### 3.flex-flow 属性是flex-direction和flex-wrap属性的简写模式
 
 ```text
  .box {
@@ -65,7 +66,7 @@
  }
 ```
 
-######4. justify-content属性定义项目在主轴的对齐方式
+###### 4. justify-content属性定义项目在主轴的对齐方式
 
 ```text
 .box {
@@ -78,7 +79,7 @@
 * space-between : 两端对齐，元素之前的间距相等 ；
 * space-around : 每个元素两侧的间距相等。所以，项目之间的间隔比项目与边框的间距大一倍。
 
-######5.align-items属性定义项目在交叉轴上如何对齐
+###### 5.align-items属性定义项目在交叉轴上如何对齐
 ```text
 .bod {
     align-items : flex-start || flex-end || center || baseline || stretch ;
@@ -90,7 +91,7 @@
 * baseline : 元素的第一行文字的基线对齐；
 * stretch(默认值) : 如果元素没有设置高度或者设为auto，元素的高度将占满整个容器的高度;
 
-######6.align-content属性定义多根轴线的对齐方式，如果项目只有一个轴线，则该属性不起作用。
+###### 6.align-content属性定义多根轴线的对齐方式，如果项目只有一个轴线，则该属性不起作用。
 ```text
 .box {
     align-content : flex-start || flex-end || center || space-between || space-around || stretch ;
@@ -104,14 +105,14 @@
 * stretch : 轴线占满整个交叉轴；
 ##三、flex布局下的元素属性
 
-######1.order属性定义元素的排列顺序，数值越小，排列越靠前，默认为1.
+###### 1.order属性定义元素的排列顺序，数值越小，排列越靠前，默认为1.
 ```text
 .ele {
     order : <num> ;
 }
 ```
 
-######2.flex-grow属性定义元素的的放大比列，默认值为0，即无论剩余空间有多大，都不会放大。
+###### 2.flex-grow属性定义元素的的放大比列，默认值为0，即无论剩余空间有多大，都不会放大。
  ```text
   .ele {
       flex-grow : <num> ;
@@ -120,7 +121,7 @@
 
  **子元素会通过该值来按比例来划分剩余的空间**
  
- ######3.flex-shrink属性定义项目的缩小的比列，默认为1，如果空间不足，该元素将缩小，
+ ###### 3.flex-shrink属性定义项目的缩小的比列，默认为1，如果空间不足，该元素将缩小，
  ```text
  .ele {
      flex-shrink : <num> ; /* default 1 */
@@ -128,7 +129,7 @@
  ```
  如果一个元素的默认值为0，其他元素的默认值为1，当容器空间不足时，为0的元素不变，其他的将缩小。（**负值对该属性无效**）
  
- ######4.flex-basis属性定义了在分配多余空间之前，元素占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间。它的默认值为auto,即元素的默认大小。
+ ###### 4.flex-basis属性定义了在分配多余空间之前，元素占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间。它的默认值为auto,即元素的默认大小。
  ```text
  .ele {
      flex-basis : <length> || auto ; /*default auto*/
@@ -136,7 +137,7 @@
   ```
   可以设为跟height和width属性一样的值，则元素将占据固定空间。
   
- ######5.flex属性是flex-grow、flex-shrink和flex-basis的简写,默认值为0 1 auto.
+ ###### 5.flex属性是flex-grow、flex-shrink和flex-basis的简写,默认值为0 1 auto.
  ```text
  .ele {
      flex : node || auto || [ <flex-grow> <flex-shrink> <flex-basis>  ] ; 
@@ -144,7 +145,7 @@
  ```
  该属性有两个快捷键值：auto ( 1 1 auto )和 none ( 0 0 auto )。
  
- ######6.align-self属性允许单个项目与其他项目不一样的对齐方式，可以覆盖align-items属性，默认值为auto,表示继承父元素的align-items属性。
+ ###### 6.align-self属性允许单个项目与其他项目不一样的对齐方式，可以覆盖align-items属性，默认值为auto,表示继承父元素的align-items属性。
  ```text
  .ele {
      align-self : auto || flex-start || flex-end || center || baselin || stretch ; /*default auto*/
