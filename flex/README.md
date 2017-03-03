@@ -108,6 +108,7 @@
 ## 三、flex布局下的元素属性
 
 ###### 1.order属性定义元素的排列顺序，数值越小，排列越靠前，默认为1.
+
 ```text
 .ele {
     order : <num> ;
@@ -115,15 +116,17 @@
 ```
 
 ###### 2.flex-grow属性定义元素的的放大比列，默认值为0，即无论剩余空间有多大，都不会放大。
+
  ```text
   .ele {
       flex-grow : <num> ;
   }
  ```
 
- (**子元素会通过该值来按比例来划分剩余的空间**)
+ (*子元素会通过该值来按比例来划分剩余的空间*)
  
  ###### 3.flex-shrink属性定义项目的缩小的比列，默认为1，如果空间不足，该元素将缩小，
+ 
  ```text
  .ele {
      flex-shrink : <num> ; /* default 1 */
@@ -132,25 +135,32 @@
  如果一个元素的默认值为0，其他元素的默认值为1，当容器空间不足时，为0的元素不变，其他的将缩小。（**负值对该属性无效**）
  
  ###### 4.flex-basis属性定义了在分配多余空间之前，元素占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间。它的默认值为auto,即元素的默认大小。
+ 
  ```text
  .ele {
      flex-basis : <length> || auto ; /*default auto*/
  }
   ```
+  
   可以设为跟height和width属性一样的值，则元素将占据固定空间。
   
+ 
  ###### 5.flex属性是flex-grow、flex-shrink和flex-basis的简写,默认值为0 1 auto.
+ 
  ```text
  .ele {
      flex : node || auto || [ <flex-grow> <flex-shrink> <flex-basis>  ] ; 
  }
  ```
+ 
  该属性有两个快捷键值：auto ( 1 1 auto )和 none ( 0 0 auto )。
  
  ###### 6.align-self属性允许单个项目与其他项目不一样的对齐方式，可以覆盖align-items属性，默认值为auto,表示继承父元素的align-items属性。
+ 
  ```text
  .ele {
      align-self : auto || flex-start || flex-end || center || baselin || stretch ; /*default auto*/
  }
  ```
+ 
  该属性的的出auto继承父元素的align-items外，其他的都与align-items的属性结果相同。
