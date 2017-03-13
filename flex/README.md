@@ -31,7 +31,7 @@
 
 * 单个项目占据的主轴空间叫main size,占据交叉轴的空间叫cross size(*仅仅只影响子元素，而不包括子元素的后代元素*) ;
 
-<img src = "../imgs/flex.png>
+<img src = "./imgs/flex.png>
 
 ## 二、容器属性
 
