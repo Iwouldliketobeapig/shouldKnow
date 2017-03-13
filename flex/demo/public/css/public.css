@@ -1,0 +1,17 @@
+.body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.yColor{
+    background-color: #f4fe00;
+}
+.bColor{
+    background-color: #2628de;
+}
+.gColor{
+    background-color: #00e01d;
+}
+.rColor{
+    background-color: #ff0098;
+}

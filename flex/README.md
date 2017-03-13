@@ -17,7 +17,7 @@
 }
 ```
 
-* 使用flex布局后，子元素的float,chear和vertical-align属性将失效 ；
+* 使用flex布局后，子元素的float,clear和vertical-align属性将失效 ；
 
 ## 一、基本概念
 
@@ -29,8 +29,9 @@
 
 * 交叉轴开始的位置叫cross start; 交叉轴结束的位置叫cross end ;
 
-* 单个项目占据的主轴空间叫main size,占据交叉轴的空间叫cross size ;
+* 单个项目占据的主轴空间叫main size,占据交叉轴的空间叫cross size(*仅仅只影响子元素，而不包括子元素的后代元素*) ;
 
+<img src = "../imgs/flex.png>
 
 ## 二、容器属性
 

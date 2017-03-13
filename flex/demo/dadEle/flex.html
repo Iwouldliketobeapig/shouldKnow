@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8" >
+    <meta http-equiv = "X-UA-COMPATIBLE" content = "IE= edge,chrome= 1" >
+    <title>flex属性</title>
+    <link rel = "stylesheet" type = "text/css" href = "../public/css/public.css" />
+    <script type = "text/javascript" src = '../public/js/jquery-3.1.1.min.js' ></script>
+</head>
+<style type = "text/css">
+    .father-box{
+        display: flex;
+        width: 500px;
+        height: 500px;
+    }
+    .son-box{
+        float: right;
+        width: 100px;
+        height: 300px;
+    }
+    .grand-box{
+        float: right;
+        width: 50px;
+        height: 100px;
+    }
+</style>
+<body>
+    <h3>任何一个元素都适合flex布局，使用flex布局后，子元素的float、clear、vertical-align属性将失效</h3>
+    <div class = "father-box gColor">
+        <h4>我是父元素，我被定义的flex布局</h4>
+        <div class = "son-box bColor">
+            <h5>我是子元素1，我用了float属性,向右浮动</h5>
+            <div class = "grand-box rColor" >
+                <span>我是孙孙，我也右浮动</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
