@@ -32,10 +32,11 @@
 * 单个项目占据的主轴空间叫main size,占据交叉轴的空间叫cross size(*仅仅只影响子元素，而不包括子元素的后代元素*) ;
 
 <img src = "./imgs/flex.png">
+[实例路径]（https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex.html）
 
 ## 二、容器属性
 
-###### 1.flex-direction 属性决定住轴的方向（即项目的排列方向）；
+###### 1.flex-direction 属性决定主轴的方向（即项目的排列方向）；
 
 ```text
 .box {
@@ -46,7 +47,10 @@
 * row-reverse : 水平主轴方向，起点在右端 ；
 * column : 竖直交叉轴方向，起点在上沿 ；
 * column-reverse : 竖直交叉轴方向，起点在下沿 ；
-（**主轴的方向和是可以改变的**）
+（**主轴的方向是可以改变的**）
+
+<img src="./imgs/flex-direction.png">
+[实例路径]（https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/direction.html）
 
 ###### 2.flex-wrap 属性决定如何换行 
 
