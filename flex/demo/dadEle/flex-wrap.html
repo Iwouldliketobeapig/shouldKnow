@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-wrap属性</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+<style>
+    .father-box{
+        display: flex;
+        width: 400px;
+        height: 100px;
+    }
+    .nowrap{
+        flex-wrap: nowrap;
+    }
+    .wrap{
+        flex-wrap: wrap;
+    }
+    .wrap-reverse{
+        flex-wrap: wrap-reverse;
+    }
+    .father-box>div{
+        width: 200px;
+        height: 50px;
+    }
+</style>
+<body>
+<h3>flex-wrap属性决定子元素如何换行</h3>
+<h5>我被设置了flex-wrap:nowrap属性(真的不得换行)</h5>
+<div class = "father-box nowrap gColor">
+    <div class="yColor">我是第一块</div>
+    <div class="rColor">我是第二块</div>
+    <div class="bColor">我是第三块</div>
+</div>
+<h5>我被设置了flex-wrap:wrap属性</h5>
+<div class = "father-box wrap gColor">
+    <div class="yColor">我是第一块</div>
+    <div class="rColor">我是第二块</div>
+    <div class="bColor">我是第三块</div>
+</div>
+<h5>我被设置了flex-wrap:wrap-reverse属性</h5>
+<div class = "father-box wrap-reverse gColor">
+    <div class="yColor">我是第一块</div>
+    <div class="rColor">我是第二块</div>
+    <div class="bColor">我是第三块</div>
+</div>
+</body>
+</html>

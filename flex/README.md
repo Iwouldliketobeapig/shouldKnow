@@ -64,6 +64,9 @@
 * wrap : 换行，且第一行在上方 ;
 * wrap-reverse : 换行，且第一行在下方 ;
 
+<img src="./imgs/flex-wrap.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-wrap.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
 ###### 3.flex-flow 属性是flex-direction和flex-wrap属性的简写模式
 
 ```text
