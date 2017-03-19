@@ -75,6 +75,11 @@
  }
 ```
 
+<img src="./imgs/flex-flow.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-flow.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
+(*不一一组合举例*)
+
 ###### 4. justify-content属性定义项目在主轴的对齐方式
 
 ```text
