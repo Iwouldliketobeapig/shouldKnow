@@ -96,6 +96,8 @@
 <img src="./imgs/justify-content.png">
 <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/justify-content.html" target="_blank">实例路径（建议down下整个flex目录）</a>
 
+(**注意与flex-direction:row与justify-content:flex-start和flex-direction:row-reverse与justify-content:flex-end之间的区别**)
+
 ###### 5.align-items属性定义项目在交叉轴上如何对齐
 ```text
 .bod {
