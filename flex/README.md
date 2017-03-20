@@ -93,6 +93,9 @@
 * space-between : 两端对齐，元素之前的间距相等 ；
 * space-around : 每个元素两侧的间距相等。所以，项目之间的间隔比项目与边框的间距大一倍。
 
+<img src="./imgs/justify-content.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/justify-content.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
 ###### 5.align-items属性定义项目在交叉轴上如何对齐
 ```text
 .bod {
