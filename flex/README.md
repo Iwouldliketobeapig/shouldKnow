@@ -107,8 +107,11 @@
 * flex-start : 交叉轴的起点对齐；
 * flex-end : 交叉轴的终点对齐；
 * center : 交叉轴居中；
-* baseline : 元素的第一行文字的基线对齐；
+* baseline : 元素的子元素的以第一行文字的基线对齐(*暂时没有想到实用性*)；
 * stretch(默认值) : 如果元素没有设置高度或者设为auto，元素的高度将占满整个容器的高度;
+
+<img src="./imgs/align-items.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/align-items.html" target="_blank">实例路径（建议down下整个flex目录）</a>
 
 ###### 6.align-content属性定义多根轴线的对齐方式，如果项目只有一个轴线，则该属性不起作用。
 ```text
