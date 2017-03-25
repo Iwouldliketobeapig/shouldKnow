@@ -120,11 +120,16 @@
 }
 ```
 * flex-start : 与交叉起点对齐；
-* flex-end : 与交叉轴重点对齐；
+* flex-end : 与交叉轴终点对齐；
 * center : 与交叉轴中点对齐；
 * space-between : 与交叉轴两端对齐，轴线之间的间隔平均分布；
 * space-around : 轴线两侧的间隔都相等；
 * stretch : 轴线占满整个交叉轴；
+
+<img src="./imgs/align-content.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/align-content.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
+(*注意与align-items的区别；与justify-content的相似处*)
 
 ## 三、flex布局下的元素属性
 
