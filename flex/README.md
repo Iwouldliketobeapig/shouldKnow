@@ -142,19 +142,28 @@
 ```
 
 <img src="./imgs/order.png">
-<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/order.html" target="_blank">实例路径（建议down下整个flex目录）</a>
 
 *经过实测负数跟零也遵从属性（没有测小数点的影响）*
 
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/order.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
+
+
 ###### 2.flex-grow属性定义元素的的放大比列，默认值为0，即无论剩余空间有多大，都不会放大。
+
+> 1.注意这里的放大是相对于父元素主轴上的剩余长度的比列（有点瓜分父亲财产的意思），如果主轴无剩余长度，则基数为零（即都不会放大）；不为零时，则按各子元素的放大比列平均分配；
+
+> 2.负数不是有效值；
+
+> 3.不影响交叉轴的长度。
 
  ```text
   .ele {
       flex-grow : <num> ;
   }
  ```
-
- (*子元素会通过该值来按比例来划分剩余的空间*)
+<img src="./imgs/flex-grow.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-grow.html" target="_blank">实例路径（建议down下整个flex目录）</a>
  
  ###### 3.flex-shrink属性定义项目的缩小的比列，默认为1，如果空间不足，该元素将缩小，
  

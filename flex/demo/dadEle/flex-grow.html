@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-grow</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+<style>
+    .father-box{
+        display: flex;
+        width: 400px;
+        height: 100px;
+        flex-wrap: wrap;
+    }
+    .father-box>div{
+        width: 100px;
+        height: 80px;
+    }
+    .zeroPointFive{
+        flex-grow: 0.5;
+    }
+    .one{
+        flex-grow: 1;
+    }
+    .Minus-one{
+        flex-grow: -1;
+    }
+</style>
+<body>
+    <h3>flex-grow属性定义在flex布局下，元素的放大比列,默认值为0，即不放大 </h3>
+    <h5>以下实例中初始值都为长为100px,高80px</h5>
+    <h5>放大比列为1</h5>
+    <div class="father-box yColor">
+        <div class="gColor one"></div>
+    </div>
+    <h5>放大比列为0.5</h5>
+    <div class="father-box yColor">
+        <div class="bColor zeroPointFive"></div>
+    </div>
+    <h5>放大比列为-1</h5>
+    <div class="father-box yColor">
+        <div class="rColor Minus-one"></div>
+    </div>
+</body>
+</html>
