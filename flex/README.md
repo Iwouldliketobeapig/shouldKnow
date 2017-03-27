@@ -141,6 +141,11 @@
 }
 ```
 
+<img src="./imgs/order.png">
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/order.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+
+*经过实测负数跟零也遵从属性（没有测小数点的影响）*
+
 ###### 2.flex-grow属性定义元素的的放大比列，默认值为0，即无论剩余空间有多大，都不会放大。
 
  ```text
