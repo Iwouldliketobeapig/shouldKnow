@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex-shrink</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+<style>
+    .father-box{
+        display: flex;
+        width: 400px;
+        height: 50px;
+    }
+    .father-box>div{
+        width: 200px;
+    }
+    .zero{
+        flex-shrink: 0;
+    }
+    .two{
+        flex-shrink: 2;
+    }
+    .father-box>.width{
+        width: 400px;
+    }
+    .father-box>.bigWidth{
+        width: 500px;
+    }
+</style>
+<body>
+<h3>flex-shrink属性定义*当父元素空间不足时*项目的缩-小比列，默认为1，若空间不住，则将元素缩小</h3>
+<h6>父元素的长度为400px,三个字元素的长度分别设为了200px，被等比列缩小了</h6>
+<div class="father-box yColor">
+    <div class="rColor"></div>
+    <div class="bColor"></div>
+    <div class="gColor"></div>
+</div>
+<h6>子元素的宽度都为200px,但是一个元素的设置了flex-shrink:0</h6>
+<div class="father-box yColor">
+    <div class="rColor"></div>
+    <div class="bColor zero">
+        我被设置了flex-shrink:0,我没有被缩小
+    </div>
+    <div class="gColor"></div>
+</div>
+<h6>一个子元素被设置的宽度跟父元素相等时,且设置flex-shrink:0</h6>
+<div class="father-box yColor">
+    <div class="rColor"></div>
+    <div class="bColor zero width">
+        我就是那个被设置的元素，其实我还有两个兄弟，只不过被挤不在了
+    </div>
+    <div class="gColor"></div>
+</div>
+<h6>子元素宽度超出父元素的长度,且设置flex-shrink:0</h6>
+<div class="father-box yColor">
+    <div class="bColor zero bigWidth">
+        我的宽度是500px,而我的父元素跟上面的一样都是400px;
+    </div>
+</div>
+</body>
+</html>
