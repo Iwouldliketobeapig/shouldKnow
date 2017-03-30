@@ -163,7 +163,7 @@
   }
  ```
 <img src="./imgs/flex-grow.png">
-<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-grow.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+<a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/flex-grow.html" target="_blank">实例路径（建议down下整个flex目录）</a>
  
  ###### 3.flex-shrink属性定义项目的缩小的比列，默认为1，如果空间不足，该元素将缩小，
  
@@ -176,7 +176,7 @@
  如果一个元素的默认值为0，其他元素的默认值为1，当容器空间不足时，为0的元素不变，其他的元素缩小；多个元素时属性值越大，缩小比列越大。（*负值对该属性无效*）
  
  <img src="./imgs/flex-shrink.png">
-  <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-shrink.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+  <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/flex-shrink.html" target="_blank">实例路径（建议down下整个flex目录）</a>
   
  
  ###### 4.flex-basis属性定义了在分配多余空间之前，元素占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间。它的默认值为auto,即元素的默认大小。
@@ -200,7 +200,7 @@
  
  该属性有两个快捷键值：auto ( 1 1 auto )和 none ( 0 0 auto )。
  
- ###### 6.align-self属性允许单个项目与其他项目不一样的对齐方式，可以覆盖align-items属性，默认值为auto,表示继承父元素的align-items属性。
+ ###### 6.align-self属性允许单个项目与其他项目不一样的对齐方式，优先权大于父元素设置的align-items属性，默认值为auto,表示继承父元素的align-items属性。
  
  ```text
  .ele {
@@ -209,3 +209,7 @@
  ```
  
  该属性的的出auto继承父元素的align-items外，其他的都与align-items的属性结果相同。
+ 
+ <img src="./imgs/align-self.png">
+  <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/sonEle/align-self.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+   
