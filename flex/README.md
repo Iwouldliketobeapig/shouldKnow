@@ -172,10 +172,12 @@
      flex-shrink : <num> ; /* default 1 */
  }
  ```
- <img src="./imgs/flex-shrink.png">
- <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-shrink.html" target="_blank">实例路径（建议down下整个flex目录）</a>
  
  如果一个元素的默认值为0，其他元素的默认值为1，当容器空间不足时，为0的元素不变，其他的元素缩小；多个元素时属性值越大，缩小比列越大。（*负值对该属性无效*）
+ 
+ <img src="./imgs/flex-shrink.png">
+  <a href="https://github.com/Iwouldliketobeapig/shouldKnow/blob/master/flex/demo/dadEle/flex-shrink.html" target="_blank">实例路径（建议down下整个flex目录）</a>
+  
  
  ###### 4.flex-basis属性定义了在分配多余空间之前，元素占据的主轴空间。浏览器根据这个属性，计算主轴是否有剩余空间。它的默认值为auto,即元素的默认大小。
  
