@@ -21,7 +21,7 @@
 
 ## 兼容性
 
-<a href="www.caniuse.com/#search=flex">浏览器兼容性(未亲测)</a>
+<a href="https://www.caniuse.com/#search=flex" target="_blank">浏览器兼容性(未亲测)</a>
 <img src = "./imgs/support.png">
 
 ## 一、基本概念
