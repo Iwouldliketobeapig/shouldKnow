@@ -5,6 +5,7 @@ Threejs封装了底层的图形接口，使得程序员能够在无需掌握繁�
 Threejs用得是右手坐标轴
 
 <img src = './img/rightHand.png'/>
+
 ### Three.js的三要素： 场景(scene)、渲染器(render)、相机(camera)
 #### 场景(scene)： 
 ```text
@@ -113,7 +114,21 @@ scene.add(testMesh); /向场景中添加物体
 * height: 对应y轴的宽度；
 * depth: 对应z轴的宽度；
 * widthSegments/heightSegments/depthSegments: 沿侧面高度的分割面的数量；
-
+#### 画点、线
+```text
+var p1 = new THREE.Vector3( x, y, z );
+var p2 = new THREE.Vector3( x, y, z );
+var geometry = new THREE.Geometry();
+geometry.vertices.push(p1);
+geometry.vertices.push(p2);
+var material = new THREE.LineBasicMaterial();
+var line = new THREE.Line( geometry, material, THREE.LinePieces );
+```
+##### Vertor3: 表示3d矢量的类
+* 3d空间中的一点
+* 3d空间中的方向和长度
+* 任意排序的三元数字
+##### Gemoetry(): 所有集合模型的基础类
 #### 动画：动画的实现也是通过在每秒中多次重绘画面
 当产生运动时用可以用下面两种方式进行重绘（衡量画面切换速度，每秒帧数FPS（Frames Per Second），是指每秒画面重绘的次数）
 ```text
