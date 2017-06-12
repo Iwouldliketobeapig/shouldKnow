@@ -72,23 +72,26 @@ scene.add(light); //向场景中添加光源
 ##### 平行光(DirectionalLight): 往特定方向发射的光
 ```text
 var directionalLight = new THREE.DirectionalLight( color, intensity );
-light.position.set(x, y, z); //光源放哪
-scene.add(light); //向场景中添加光源
+light.position.set(x, y, z);
+scene.add(light);
 ```
 ##### 点光源(PointLight): 单个点向所有方向发射光；
 ```text
 var light = new THREE.PointLight(color, intensity, distance, decay); 
 light.position.set(x, y, z); //光源放哪
-scene.add(light); //向场景中添加光源
+scene.add(light); 
 ```
 * distance: 距离，当距离为此的时候，光线衰减为零
 * decay: 衰减
 ##### 聚光灯(SpotLight): 这种光从沿着一个方向的单个点发射，沿着锥体，其尺寸越来越远。
 ```text
-var spotLight = new THREE.SpotLight( 0xffffff );
-light.position.set(x, y, z); //光源放哪
-scene.add(light); //向场景中添加光源
+var spotLight = new THREE.SpotLight(color, intensity, distance, angle, penumbra, decay);
+light.position.set(x, y, z);
+scene.add(light);
 ```
+* angle: 角度，不应该超过Math.PI/2
+* penumbra: 因为半影而产生的衰减
+
 （*光源之间可以相互组合完成效果*）
 #### 几何体+材质:
 Three.js封装了一部分比较常规的几何体（Three.js没有定义的形状可以自定义）
