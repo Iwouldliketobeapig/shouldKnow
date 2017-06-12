@@ -27,7 +27,7 @@ camera.lookAt({
 * near: 近平面距离相机中心点的垂直距离；
 * far: 远平面距离相机中心点的垂直距离。
 
-<img src="./img/orthographicParameter.png" />
+<img width="200px" src="./img/orthographicParameter.png" />
  
 ##### 透视相机
 ```text
