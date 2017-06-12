@@ -29,7 +29,7 @@ camera.lookAt({
 
 <img src="./img/orthographicParameter.png" />
  
-#####透视相机
+##### 透视相机
 ```text
 var camera = new THREE.PerspectiveCamera(fov, aspect, near, far);//透视投影
 camera.position.set(x, y, z) //相机放哪
