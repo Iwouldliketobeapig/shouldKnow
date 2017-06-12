@@ -109,5 +109,7 @@ scene.add(testMesh); /向场景中添加物体
 
 #### 动画：动画的实现也是通过在每秒中多次重绘画面
 （衡量画面切换速度，每秒帧数FPS（Frames Per Second），是指每秒画面重绘的次数）
+
 setInterval()
+
 requestAnimationFrame()
