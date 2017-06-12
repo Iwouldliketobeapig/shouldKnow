@@ -111,8 +111,12 @@ scene.add(testMesh); /向场景中添加物体
 * widthSegments/heightSegments/depthSegments: 沿侧面高度的分割面的数量；
 
 #### 动画：动画的实现也是通过在每秒中多次重绘画面
-（衡量画面切换速度，每秒帧数FPS（Frames Per Second），是指每秒画面重绘的次数）
+当产生运动时用可以用下面两种方式进行重绘（衡量画面切换速度，每秒帧数FPS（Frames Per Second），是指每秒画面重绘的次数）
+```text
+setInterval()  //优点能够手动调整FPS，
+requestAnimationFrame() //固定FP为60
+```
+当浏览器达不到设定的调用周期时，requestAnimationFrame采用跳过某些帧的方式来表现动画，虽然会有卡滞的效果但是整体速度不会拖慢，而 setInterval会因此使整个程序放慢运行，但是每一帧都会绘制出来；
 
-setInterval()
+### 性能检测器
 
-requestAnimationFrame()

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>球体</title>
+    <script src = '../three.js'></script>
+</head>
+<style type="text/css">
+    #ball{
+        width: 100%;
+        height: 800px;
+    }
+</style>
+<body>
+<div id = "ball"></div>
+</body>
+<script>
+
+    //场景    var scene;
+    function initScene(){
+        scene = new THREE.Scene();
+    }
+
+    //渲染器
+    var renderer;
+    function initRenderer(){
+        w = document.getElementById('ball').clientWidth;
+        h = document.getElementById('ball').clientHeight;
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(w, h);
+        document.getElementById('ball').appendChild(renderer.domElement);
+        renderer.setClearColor(0x000000, 1.0);
+    }
+
+    //相机
+    var camera;
+    function initCamera(){
+        camera = new THREE.PerspectiveCamera(45, w / h, 1, 1000);
+        camera.position.set(0, 0, 150);
+        camera.lookAt({
+            x: 0,
+            y: 0,
+            z: 0
+        })
+    }
+
+    //光源
+    var light;
+    function initLight(){
+        light = new THREE.PointLight(0xffffff);
+        light.position.set(0, 0, 0);
+        scene.add(light);
+    }
+
+    //物体
+    var eathMesh,
+        moonMesh,
+        sunMesh,
+        sunPivotePoint,
+        eathPivotePoint;
+    function initCube(){
+
+        //假装这个是太阳
+        sunMesh = new THREE.Mesh(
+            new THREE.SphereGeometry(10),
+            new THREE.MeshBasicMaterial({
+                color: 0xff0000,
+                wireframe: true
+            })
+        );
+        sunMesh.position.set(0, 0, 0);
+        scene.add(sunMesh);
+        sunPivotePoint = new THREE.Object3D();
+        sunMesh.add(sunPivotePoint);
+
+        //假装这个是地球
+        eathMesh = new THREE.Mesh(
+            new THREE.SphereGeometry(4, 50, 50),
+            new THREE.MeshPhongMaterial({
+                //color: 0xff0000,
+                //wireframe: true
+                map:THREE.ImageUtils.loadTexture('./img/earth.jpg'),
+                //side: THREE.DoubleSide
+            })
+        );
+        eathMesh.position.set(60, 0, 0);
+        scene.add(eathMesh);
+        eathPivotePoint = new THREE.Object3D();
+        eathMesh.add(eathPivotePoint);
+        sunPivotePoint.add(eathMesh)
+
+        //假装你是月亮了
+        moonMesh = new THREE.Mesh(
+            new THREE.SphereGeometry(2),
+            new THREE.MeshBasicMaterial({
+                color: 0xff0000,
+                wireframe: true,
+            })
+        );
+        moonMesh.position.set(10, 0, 0);
+        scene.add(moonMesh);
+        eathPivotePoint.add(moonMesh)
+    }
+
+    //绘制星星
+    function starts(num){
+        for(var i = 0; i < num; i++){
+            let meshs = new THREE.Mesh(
+                new THREE.SphereGeometry(0.1),
+                new THREE.MeshBasicMaterial({
+                    color: 0xffffff
+                })
+            );
+            let a = [];
+            for(var j = 0; j < 3; j++){
+                let position = Math.ceil(Math.random()*4000 - 2000);
+                a.push(position);
+            };
+            let x = Math.ceil(Math.random()*2000 - 1000);
+            let y = Math.ceil(Math.random()*2000 - 1000);
+            let z = Math.ceil(Math.random()*2000 - 1000);
+            meshs.position.set(x, y, z);
+            scene.add(meshs);
+        }
+    }
+
+    //流星
+    var meteor;
+    function meteors(){
+        //test
+        meteor = new THREE.Mesh(
+            new THREE.SphereGeometry(0.1),
+            new THREE.MeshBasicMaterial({
+                color: 0xffffff
+            })
+        );
+        meteor.position.set(100, 200 , 100);
+        scene.add(meteor);
+    }
+
+    //EvenUtil
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        },
+
+        getEvent: function (event) {
+            return event ? event : window.event;
+        },
+        getTarget: function (event) {
+            return event.target || event.srcElement;
+        },
+        preventDefault: function (event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+        stopPropagation: function (event) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubbles = true;
+            }
+        },
+        getRelatedTarget: function (event) {
+            if (event.relatedTarger) {
+                return event.relatedTarget;
+            } else if (event.toElement) {
+                return event.toElement;
+            } else if (event.fromElement) {
+                return event.fromElement;
+            } else { return null; }
+        }
+    }
+
+    ////场景缩大缩小
+    EventUtil.addHandler(document, 'mousewheel', function(event){
+        event = EventUtil.getEvent(event);
+        camera.position.z = camera.position.z + event.deltaY;
+    });
+    //执行
+    function threeDo(){
+        initScene();
+        initRenderer();
+        initLight();
+        initCamera();
+        initCube();
+        starts(10000);
+        meteors()
+        MaxAnimation();
+    }
+
+    //运动
+    function MaxAnimation(){
+        eathMesh.rotation.z = (eathMesh.rotation.z + 0.01) % (Math.PI * 2);
+        moonMesh.rotation.y = (moonMesh.rotation.y + 0.01) % (Math.PI * 2)
+        sunPivotePoint.rotation.z = (sunPivotePoint.rotation.z + 0.01) % (Math.PI * 2);
+        eathPivotePoint.rotation.z = (eathPivotePoint.rotation.z + 0.05) % (Math.PI * 2);
+        meteor.position.x = meteor.position.x - 0.2;
+        meteor.position.y = meteor.position.y - 0.2;
+        meteor.position.y = meteor.position.y - 0.2;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(MaxAnimation);
+    }
+
+    //拖拽
+    var mouseX,mouseY,isMove=true;
+    document.onmousedown = function(e){
+        isMove = false;
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    }
+    document.onmousemove = function rt(e){
+        if(!isMove){
+            var disX = e.pageX - mouseX;
+            var disY = e.pageY - mouseY;
+            camera.rotation.x = camera.rotation.x>0.8?0.8:camera.rotation.x;
+            camera.rotation.x = camera.rotation.x<-0.8?-0.8:camera.rotation.x;
+            camera.rotation.x+= disY*0.00005* Math.PI;
+            camera.rotation.y+= disX*0.0001* Math.PI;
+            renderer.render(scene,camera);
+        }
+    }
+    document.onmouseup = function(){
+        isMove = true;
+    }
+
+    window.onload = threeDo();
+
+     
+</script>
+</html>
