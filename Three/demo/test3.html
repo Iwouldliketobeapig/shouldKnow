@@ -53,6 +53,8 @@
         scene.add(light);
     }
 
+    //纹理
+    var loader = new THREE.TextureLoader();
     //物体
     var eathMesh,
         moonMesh,
@@ -75,12 +77,13 @@
         sunMesh.add(sunPivotePoint);
 
         //假装这个是地球
+        var eathImg = loader.load('http://www.qdfuns.com/attachment/extend/notes/pics/201611/22/100625fgf5ilkuugkikfuj.jpg');
         eathMesh = new THREE.Mesh(
-            new THREE.SphereGeometry(4, 50, 50),
+            new THREE.SphereGeometry(5, 50, 50),
             new THREE.MeshPhongMaterial({
                 //color: 0xff0000,
                 //wireframe: true
-                map:THREE.ImageUtils.loadTexture('./img/earth.jpg'),
+                map: eathImg,
                 //side: THREE.DoubleSide
             })
         );
