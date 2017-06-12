@@ -135,4 +135,4 @@ function animation(){
 }
 ```
 在动画前调用stat.begin(),动画结束后调用stat.end();
-<img src='./img/stat.js' />
+<img src='./img/stat.png' />
