@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>球体</title>
-    <script src = '../three.js'></script>
+    <script src = '../js/three.js'></script>
+    <script src = '../js/Stats.js'></script>
 </head>
 <style type="text/css">
     #ball{
@@ -195,6 +196,17 @@
         event = EventUtil.getEvent(event);
         camera.position.z = camera.position.z + event.deltaY;
     });
+
+    var stat;
+    function initStat(){
+        console.log('以执行');
+        stat = new Stats();
+        stat.domElement.style.position = 'absolute';
+        stat.domElement.style.right = '0px';     
+        stat.domElement.style.top = '0px';      
+        document.body.appendChild(stat.domElement);
+    }
+
     //执行
     function threeDo(){
         initScene();
@@ -203,12 +215,14 @@
         initCamera();
         initCube();
         starts(10000);
-        meteors()
+        meteors();
+        initStat();
         MaxAnimation();
     }
 
     //运动
     function MaxAnimation(){
+        stat.begin(); 
         eathMesh.rotation.z = (eathMesh.rotation.z + 0.01) % (Math.PI * 2);
         moonMesh.rotation.y = (moonMesh.rotation.y + 0.01) % (Math.PI * 2)
         sunPivotePoint.rotation.z = (sunPivotePoint.rotation.z + 0.01) % (Math.PI * 2);
@@ -218,6 +232,7 @@
         meteor.position.y = meteor.position.y - 0.2;
 
         renderer.render(scene, camera);
+        stat.end(); 
         requestAnimationFrame(MaxAnimation);
     }
 
@@ -244,7 +259,5 @@
     }
 
     window.onload = threeDo();
-
-     
 </script>
 </html>

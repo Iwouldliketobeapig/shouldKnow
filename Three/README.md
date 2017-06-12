@@ -118,5 +118,21 @@ requestAnimationFrame() //固定FP为60
 ```
 当浏览器达不到设定的调用周期时，requestAnimationFrame采用跳过某些帧的方式来表现动画，虽然会有卡滞的效果但是整体速度不会拖慢，而 setInterval会因此使整个程序放慢运行，但是每一帧都会绘制出来；
 
-### 性能检测器
-
+### 性能检测(Stat.js)
+```text
+var stat;
+function initStat(){
+    stat = new Stats();
+    stat.domElement.style.position = 'absolute';
+    stat.domElement.style.right = '0px'; 
+    stat.domElement.style.top = '0px';
+    document.body.appendChild(stat.domElement);
+}
+function animation(){
+    stat.begin();
+    //动画
+    stat.end();
+}
+```
+在动画前调用stat.begin(),动画结束后调用stat.end();
+<img src='./img/stat.js' />
