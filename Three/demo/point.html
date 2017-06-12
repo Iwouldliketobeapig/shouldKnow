@@ -14,7 +14,6 @@
         <div id="test"></div>
     </body>
     <script>
-        //设置渲染器
         var renderer;
         function initRenderer(){
             w = document.getElementById('test').clientWidth;
@@ -27,23 +26,19 @@
             renderer.setClearColor(0x000000, 1.0);
         }
 
-        //设置场景
         var scene;
         function initScene(){
             scene = new THREE.Scene;
         }
 
-        //设置相机
         var camera;
         function initCamera(){
-            camera = new THREE.OrthographicCamera(-3, 3, 1.5, -1.5, 1, 10); //设置正交投影相机
-            //camera = new THREE.PerspectiveCamera( 30, w / h, 1, 1000 ); //投影相机
-            camera.position.set(5, 3, 3);
-            camera.lookAt(new THREE.Vector3(0, 0, 0)); //设置相机的观察方向
+            camera = new THREE.PerspectiveCamera( 45, w / h, 1, 1000 );
+            camera.position.set(100, 100, 100);
+            camera.lookAt(new THREE.Vector3(0, 0, 0));
             scene.add(camera);
         }
 
-        //设置光线
         var light;
         function initLight(){
             light = new THREE.DirectionalLight(0xffffff, 1.0, 0);
@@ -51,17 +46,16 @@
             scene.add(light);
         }
 
-        //设置物体
-        var cube;
+        var line;
         function initCube(){
-            mesh = new THREE.Mesh(new THREE.CubeGeometry(1, 1, 1), 
-            new THREE.MeshBasicMaterial({
-                color: 0xff0000,
-                wireframe: true 
-            })
-            );
-            mesh.position.set(0, 0, 0);
-            scene.add(mesh);
+            var p1 = new THREE.Vector3( 0, 0, 0 );
+            var p2 = new THREE.Vector3( 100, 0, 0 );
+            var geometry = new THREE.Geometry();
+            geometry.vertices.push(p1);
+            geometry.vertices.push(p2);
+            var material = new THREE.LineBasicMaterial();
+            line = new THREE.Line( geometry, material, THREE.LinePieces );
+            scene.add(line);
         }
 
         function threeStart(){
@@ -70,17 +64,9 @@
             initRenderer();
             initCamera();
             initLight();
-            //animation();
-            renderer.clear();
             renderer.render(scene, camera);
         }
 
-        function animation(){
-            camera.position.x +=1;
-            camera.position.z -=1;
-            renderer.render(scene, camera);
-            requestAnimationFrame(animation);
-        }
         window.onload = threeStart();
     </script>
 </html>

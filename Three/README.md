@@ -114,6 +114,7 @@ scene.add(testMesh); /向场景中添加物体
 * height: 对应y轴的宽度；
 * depth: 对应z轴的宽度；
 * widthSegments/heightSegments/depthSegments: 沿侧面高度的分割面的数量；
+*Mesh()表示三角形网格对应的类*
 #### 画点、线
 ```text
 var p1 = new THREE.Vector3( x, y, z );
