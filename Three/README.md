@@ -1,4 +1,4 @@
-## THREE.js入门到放弃
+## THREE.js初学篇
 ### Three.js是一个3D JavaScript库
 Threejs封装了底层的图形接口，使得程序员能够在无需掌握繁冗的图形学知识的情况下，也能用简单的代码实现三维场景的渲染。Three.js能大大简化WebGL的开发
 
@@ -6,7 +6,7 @@ Threejs用得是右手坐标轴
 
 <img src = './img/rightHand.png'/>
 
-### Three.js的三要素： 场景(scene)、渲染器(render)、相机(camera)
+### Three.js的三钢需： 场景(scene)、渲染器(render)、相机(camera)
 #### 场景(scene)： 
 ```text
     var scene = new THREE.scene();
