@@ -59,3 +59,10 @@
 * 输入模块的指定方式
 
 ### 字符串扩展
+
+* 字符的Unicode表示法
+* codePointAt(): 识别大于0xffff的Unicode编号，正确处理4个字节储存的字符,判断一个字符是否由四个字节组成(a.codePointAt(0) > 0xffff)
+* String.fromCodePoint():识别大于0xffff的Unicode编号
+* for...of: 遍历循环
+* at(): 识别大于0xffff的Unicode编号
+* 
