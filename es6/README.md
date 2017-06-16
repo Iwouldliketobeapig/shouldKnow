@@ -65,4 +65,13 @@
 * String.fromCodePoint():识别大于0xffff的Unicode编号
 * for...of: 遍历循环
 * at(): 识别大于0xffff的Unicode编号
-* 
+* normalize(): 将字符不同的表达方式统一为同样的形式
+* includes(), startsWith(), endsWith()
+```text
+includes(s) //返回布尔值，表示是否找到参数字符串
+startsWith(s) //返回布尔值，表示参数字符串是否在原字符串的头部
+endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾部
+```
+* repeat(n): 表示将原字符串重复n次(1.接受小于-1的参数报错；2.NaN相当于0；3.字符串会先转换为数字)
+* padStart(),padEnd(): 字符串补全长度
+    * 1.padStart()用于头部补全，padEnd()用户尾部补全
