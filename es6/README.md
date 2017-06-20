@@ -95,12 +95,13 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
   new RegExp(/abc/ig, 'i').flags //修饰符i:忽略大小写; g:全文找茬出现所有匹配字符; m:多行查找
   ```
 * 字符串的正则方法：在语言内部全部调用RegExp的实例方法
-(
+
+    (
     ```text
     string.match(reg); //如果没有找到则返回null;返回数组，找到则返回index和input
     string.search(reg); //找到匹配项返回匹配项位置，否则返回-1
     ```
-)
+    )
 * u修饰符: 用来正确处理大于\uffff的Unicode字符
     * 点字符：（.字符在正则表达式中，含义是出了换行以外的任意耽搁字符），对于大于0xFFFF的Unicode字符，点字符不能识别。需要加上u修饰符
     ```text
