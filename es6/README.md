@@ -109,3 +109,65 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     /^.$/.test(s) // false
     /^.$/u.test(s) // true
     ```
+    * Unicode字符表示法：es6新增使用大括号表示Unicode字符，比较加上u修饰符，才能识别
+    ```text
+    /\u{20BB7}/u.test('𠮷') // true
+    ```
+    * 量词:使用u字符后，所有量词都会正确识别码点大于0xFFFF的Unicode字符
+    ```TEXT
+    /𠮷{2}/u.test('𠮷𠮷') // true
+    ```
+    * 预定义模式：能否正确识别码点大于0xFFFF的Unicode字符
+    ```text
+    /^\S$/u.test('𠮷') // true,\S匹配所有不是空格的字符
+    ```
+    * i修饰符：识别非规范字符
+* y修饰符：（“粘连”修饰符），后一次匹配都从上一次匹配成功的下一个位置开始
+    * y修饰符遵守lastIndex属性，但是必须在lastIndex指定的位置发现匹配
+    * 
+* sticky属性：返回正则表达式的修饰符
+```text
+/abc/ig.source //返回正文
+/abc/ig.flags //返回修饰符
+```
+* RegExp.escape(): 字符串必须转义才能为正则模式（提案）
+* s修饰符：dotAll模式（提案）
+    * 在正则表达式中，.是一个特殊字符，代表任意单个字符。但是行终止字符除外
+    ```text
+    //终止字符
+    U+000A 换行符（\n）
+    U+000D 回车符（\r）
+    U+2028 行分隔符（line separator）
+    U+2029 段分隔符（paragraph separator）
+    ```
+    ```text
+    const re = /foo.bar/s;
+    // 另一种写法
+    // const re = new RegExp('foo.bar', 's');
+    re.test('foo\nbar') // true
+    ```
+* 后行断言
+
+### 数值的扩展    
+* 二进制和八进制表示法
+    * 0b(0B)前缀表示二进制，0o(0O)前缀表示八进制
+    ```text
+    0b111110111 === 503 // true
+    0o767 === 503 // true
+    ```
+    * 将0b和0o前缀的字符串改为十进制用Number方法
+    ```text
+    Number('0b111')  // 7
+    Number('0o10')  // 8
+    ```
+* Number.isFinite(),Number.isNaN()
+    * Number.isFinite()用来检测一个数组是不是有限的
+    * Number.isNaN()用来检查一个值是不是NaN
+* Number.parseInt(),Number.parseFloat()
+    * 将全局方法parseInt()和parseFloat()移植到Number对象上，行为完全保持不变
+* Number.isInteger(): 用来判断一个值是否为整数
+* Number.EPSILON: 新增的一个极小的常量，可以用来检查误差
+* 安全整数喝Number,isSafeInteger()
+    * ES6引入了Number.MAX_SAFF_INTEGER和Number.MIN_SAFF_INTEGER两个常量，用来表示整数范围的上下线
+    * Number.isSafeInteger()用来判断一个整数是否在这个范围内
+    
