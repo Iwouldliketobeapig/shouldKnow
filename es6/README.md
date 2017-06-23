@@ -170,4 +170,10 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
 * 安全整数喝Number,isSafeInteger()
     * ES6引入了Number.MAX_SAFF_INTEGER和Number.MIN_SAFF_INTEGER两个常量，用来表示整数范围的上下线
     * Number.isSafeInteger()用来判断一个整数是否在这个范围内
-    
+* Math对象扩展
+    * Math.trunc(): 去春一个数的小数部分
+    ```text
+    Math.trunc(12.31); //12
+    ```
+        * 对于非数值,Math.trunc()现在内部用Number方法将其转换为数值
+        * 控制和无法截取整数的值，返回NaN

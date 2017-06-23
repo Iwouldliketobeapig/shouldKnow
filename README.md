@@ -9,3 +9,5 @@
 4.<a href="http://caniuse.com/" target="_blank">CSS兼容性查询(https://daneden.github.io/animate.css/)</a>.
 
 5.<a href="https://stackoverflow.com/" target="_blank">stackoverflow(https://stackoverflow.com/)</a>.
+
+6.<a href="https://github.com/expressjs/cors">cors处理跨域(https://github.com/expressjs/cors)</a>
