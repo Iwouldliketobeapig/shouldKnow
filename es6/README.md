@@ -85,3 +85,109 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     * 4.模板字符串可嵌套
 * String.raw()： 模板字符串的处理函数,返回一个斜杠都被转义的字符串，对应于替换变量后的模板字符串
     * 1.如果字符串的斜杠已经转义，则不做任何处理
+* 模板字符串的限制
+    * 模板字符串默认会将字符串转义，导致无法嵌入其他语言
+
+### 正则的扩展
+
+* ES6中如果RegExp构造函数第一个参数是一个正则对象，那么可以使用第二个参数指定修饰符。正则表达式会忽略原有正则表达式的修饰符，只使用新指定的修饰符。
+  ```text
+  new RegExp(/abc/ig, 'i').flags //修饰符i:忽略大小写; g:全文找茬出现所有匹配字符; m:多行查找
+  ```
+* 字符串的正则方法：在语言内部全部调用RegExp的实例方法
+
+    (
+    ```text
+    string.match(reg); //如果没有找到则返回null;返回数组，找到则返回index和input
+    string.search(reg); //找到匹配项返回匹配项位置，否则返回-1
+    ```
+    )
+* u修饰符: 用来正确处理大于\uffff的Unicode字符
+    * 点字符：（.字符在正则表达式中，含义是出了换行以外的任意耽搁字符），对于大于0xFFFF的Unicode字符，点字符不能识别。需要加上u修饰符
+    ```text
+    var s = '𠮷';
+    /^.$/.test(s) // false
+    /^.$/u.test(s) // true
+    ```
+    * Unicode字符表示法：es6新增使用大括号表示Unicode字符，比较加上u修饰符，才能识别
+    ```text
+    /\u{20BB7}/u.test('𠮷') // true
+    ```
+    * 量词:使用u字符后，所有量词都会正确识别码点大于0xFFFF的Unicode字符
+    ```TEXT
+    /𠮷{2}/u.test('𠮷𠮷') // true
+    ```
+    * 预定义模式：能否正确识别码点大于0xFFFF的Unicode字符
+    ```text
+    /^\S$/u.test('𠮷') // true,\S匹配所有不是空格的字符
+    ```
+    * i修饰符：识别非规范字符
+* y修饰符：（“粘连”修饰符），后一次匹配都从上一次匹配成功的下一个位置开始
+    * y修饰符遵守lastIndex属性，但是必须在lastIndex指定的位置发现匹配
+    * 
+* sticky属性：返回正则表达式的修饰符
+```text
+/abc/ig.source //返回正文
+/abc/ig.flags //返回修饰符
+```
+* RegExp.escape(): 字符串必须转义才能为正则模式（提案）
+* s修饰符：dotAll模式（提案）
+    * 在正则表达式中，.是一个特殊字符，代表任意单个字符。但是行终止字符除外
+    ```text
+    //终止字符
+    U+000A 换行符（\n）
+    U+000D 回车符（\r）
+    U+2028 行分隔符（line separator）
+    U+2029 段分隔符（paragraph separator）
+    ```
+    ```text
+    const re = /foo.bar/s;
+    // 另一种写法
+    // const re = new RegExp('foo.bar', 's');
+    re.test('foo\nbar') // true
+    ```
+* 后行断言
+
+### 数值的扩展    
+* 二进制和八进制表示法
+    * 0b(0B)前缀表示二进制，0o(0O)前缀表示八进制
+    ```text
+    0b111110111 === 503 // true
+    0o767 === 503 // true
+    ```
+    * 将0b和0o前缀的字符串改为十进制用Number方法
+    ```text
+    Number('0b111')  // 7
+    Number('0o10')  // 8
+    ```
+* Number.isFinite(),Number.isNaN()
+    * Number.isFinite()用来检测一个数组是不是有限的
+    * Number.isNaN()用来检查一个值是不是NaN
+* Number.parseInt(),Number.parseFloat()
+    * 将全局方法parseInt()和parseFloat()移植到Number对象上，行为完全保持不变
+* Number.isInteger(): 用来判断一个值是否为整数
+* Number.EPSILON: 新增的一个极小的常量，可以用来检查误差
+* 安全整数喝Number,isSafeInteger()
+    * ES6引入了Number.MAX_SAFF_INTEGER和Number.MIN_SAFF_INTEGER两个常量，用来表示整数范围的上下线
+    * Number.isSafeInteger()用来判断一个整数是否在这个范围内
+* Math对象扩展
+    * Math.trunc(): 去春一个数的小数部分
+        * 对于非数值,Math.trunc()现在内部用Number方法将其转换为数值
+        * 空值和无法截取整数的值，返回NaN
+    ```text
+    Math.trunc(12.31); //12
+    ```
+    * Math.sign(): 判断一个数到底是整数、负数、还是零
+        * 参数为正数，返回+1
+        * 参数为负数，返回-1
+        * 参数为0，返回0
+        * 参数为-0，返回-0
+        * 参数为非数值，返回NaN
+    * Math.cbrt(): 计算一个方法的立方根
+        * 对于非数值，Math.cbrt()会在内部用Number方法将其转换为数值，空值和无法截取的值，返回NaN
+    
+    * Math.clz32(): 返回一个数的32位无符号整数形式有多少个前导0
+        * 只考虑整数部分
+        * 对于空值或其他类型的值，Math.clz32方法会将它们先转为数值，然后再计算。
+    * Math.imul(): 返回两个数以32位带符号整数形式相乘的结果，返回一个32位的带符号证书
+        

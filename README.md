@@ -11,3 +11,5 @@
 5.<a href="https://stackoverflow.com/" target="_blank">stackoverflow(https://stackoverflow.com/)</a>.
 
 6.windows下Node版本管理器gnvm
+
+7.<a href="https://github.com/expressjs/cors">cors处理跨域(https://github.com/expressjs/cors)</a>
