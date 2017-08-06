@@ -83,8 +83,16 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     * 2.所有模板字符串的空格和换行都是保留的，可以用trim()方法消除
     * 3.模板字符串中还能调用函数
     * 4.模板字符串可嵌套
-* String.raw()： 模板字符串的处理函数,返回一个斜杠都被转义的字符串，对应于替换变量后的模板字符串
+* String.raw``： 模板字符串的处理函数,返回一个斜杠都被转义的字符串，对应于替换变量后的模板字符串
     * 1.如果字符串的斜杠已经转义，则不做任何处理
+    * 2.可以作为正常的函数使用。
+    ```text
+    String.raw`hi\n${2+3}`;
+    // "h1\\n5"
+    String.raw({raw: "test"}, 0,1,2);
+    //"t0e1s3t"
+    //相当于String.raw({raw: ["t","e","s","t"], 0,1,2})
+    ```
 * 模板字符串的限制
     * 模板字符串默认会将字符串转义，导致无法嵌入其他语言
 
@@ -161,17 +169,17 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     Number('0o10')  // 8
     ```
 * Number.isFinite(),Number.isNaN()
-    * Number.isFinite()用来检测一个数组是不是有限的
+    * Number.isFinite()用来检测一个数值是不是有限的
     * Number.isNaN()用来检查一个值是不是NaN
 * Number.parseInt(),Number.parseFloat()
     * 将全局方法parseInt()和parseFloat()移植到Number对象上，行为完全保持不变
 * Number.isInteger(): 用来判断一个值是否为整数
 * Number.EPSILON: 新增的一个极小的常量，可以用来检查误差
-* 安全整数喝Number,isSafeInteger()
+* 安全整数和Number,isSafeInteger()
     * ES6引入了Number.MAX_SAFF_INTEGER和Number.MIN_SAFF_INTEGER两个常量，用来表示整数范围的上下线
     * Number.isSafeInteger()用来判断一个整数是否在这个范围内
 * Math对象扩展
-    * Math.trunc(): 去春一个数的小数部分
+    * Math.trunc(): 去除一个数的小数部分
         * 对于非数值,Math.trunc()现在内部用Number方法将其转换为数值
         * 空值和无法截取整数的值，返回NaN
     ```text
@@ -190,4 +198,37 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * 只考虑整数部分
         * 对于空值或其他类型的值，Math.clz32方法会将它们先转为数值，然后再计算。
     * Math.imul(): 返回两个数以32位带符号整数形式相乘的结果，返回一个32位的带符号证书
-        
+    * Math.fround(): 返回一个数的单精度浮点书形式。
+        * 无法用64个二进制位精确表示的小数，接近Math.fround方法会返回最这个小数的单精度浮点数。
+    * Math.hypot(): 方法返回所有参数的平方和的平方根。
+     ```text
+     Math.hypot(3, 4); //5
+     ```
+    * 四个与对数相关的方法
+        * (1)Math.expml(): Math.expm1(x)返回e(x) - 1，即Math.exp(x) - 1
+        * (2)Math.log1p(): Math.log1p(x)方法返回1 + x的自然对数
+        * (3)Math.log10(x): 返回以10为低的x的对数
+        * (4)Math.log2(): 返回以2为底的对数
+     （Math.log(x):返回一个数的自然对数）
+    * Math.signbit()[提案]: 判断一个书的符号位是否设置了
+        * 如果参数是NaN,返回的false
+        * 如果参数是 -0,返回true
+        * 如果参数是负值，返回true
+        * 其他情况返回false
+    * 指数运算符(**)
+    ```text
+    2 ** 2 // 4;
+    a **= 2 // a = a * a;
+    // 指数运算符与Math.pow的实现方式不同
+    ```
+    * Integter[提案]: 新的数据类型，整数类型
+        * 整数类型只用来表示整数，没有位数的限制，任何整数都可以精确表示
+        * Integer类型的数据必须使用后缀n表示
+        * 二进制、八进制、十六进制的表示法，都要加上后缀n
+        ```text
+        1n + 2n //3n
+        0b110n 
+        0o12
+        0xffn
+        ```
+        * typeof运算符
