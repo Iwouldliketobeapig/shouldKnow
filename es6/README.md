@@ -231,4 +231,15 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         0o12
         0xffn
         ```
-        * typeof运算符
+        * typeof运算符返回integer
+        ```text
+        typeof 12n // integer
+        ```
+### 函数的扩展
+* ES6允许函数的参数设置默认值，直接写在参数定义的后面。
+```text
+function(x = 5) {
+    console.log(x);
+}
+```
+    * 参数声明是默认声明的，不能使用let或const再次声明
