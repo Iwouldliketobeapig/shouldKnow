@@ -236,10 +236,44 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         typeof 12n // integer
         ```
 ### 函数的扩展
-* ES6允许函数的参数设置默认值，直接写在参数定义的后面。
 ```text
 function(x = 5) {
     console.log(x);
 }
 ```
+* 1.ES6允许函数的参数设置默认值，直接写在参数定义的后面。
     * 参数声明是默认声明的，不能使用let或const再次声明
+    * 使用参数默认值时，不能有同名参数
+    * 参数默认值是惰性求值的
+    * 与解构赋值默认值结合使用
+    * 默认值参数，应该是函数的尾参数
+    * 函数的length属性：指定默认值后，函数的length属性，将返回没有指定默认值得参数个数（如果设置了默认值得参数不是尾参数，length属性不在计入后面的参数）
+    * 作用越
+        * 使用参数默认值后，函数进行声明初始化时，参数会形成一个单独的作用域。
+        ```text
+        var x = 1;
+        function f(x, y = x) {
+            console.log(y);
+        }
+        f(2) //2
+        ```
+        * 如果参数的默认值是一个函数，该函数的作用域也遵守这个规则
+        ```text
+        let foo = "outer"
+        function f(y = x => foo) {
+            let foo = "inner";
+            console.log(y());
+        }
+        f() //outer
+        ```
+```text
+function add(...values) {
+    let sum = 0;
+    for (var val of values) {
+        sum += val;
+    }
+    return sum;
+}
+add(1, 2, 3); //6
+```
+* rest参数
