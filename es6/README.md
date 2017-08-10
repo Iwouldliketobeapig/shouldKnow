@@ -236,19 +236,19 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         typeof 12n // integer
         ```
 ### 函数的扩展
-```text
-function(x = 5) {
-    console.log(x);
-}
-```
 * 1.ES6允许函数的参数设置默认值，直接写在参数定义的后面。
+    ```text
+    function(x = 5) {
+        console.log(x);
+    }
+    ```
     * 参数声明是默认声明的，不能使用let或const再次声明
     * 使用参数默认值时，不能有同名参数
     * 参数默认值是惰性求值的
     * 与解构赋值默认值结合使用
     * 默认值参数，应该是函数的尾参数
     * 函数的length属性：指定默认值后，函数的length属性，将返回没有指定默认值得参数个数（如果设置了默认值得参数不是尾参数，length属性不在计入后面的参数）
-    * 作用越
+    * 作用域
         * 使用参数默认值后，函数进行声明初始化时，参数会形成一个单独的作用域。
         ```text
         var x = 1;
@@ -266,14 +266,38 @@ function(x = 5) {
         }
         f() //outer
         ```
-```text
-function add(...values) {
-    let sum = 0;
-    for (var val of values) {
-        sum += val;
+* 2.rest参数: 形式为（...变量名），用于获取函数的多余参数
+    ```text
+    function add(...values) {
+        let sum = 0;
+        for (var val of values) {
+            sum += val;
+        }
+        return sum;
     }
-    return sum;
-}
-add(1, 2, 3); //6
-```
-* rest参数
+    add(1, 2, 3); //6
+    ```
+    * rest参数之后不能再有其他参数
+    * 函数的length属性不包括rest
+* 3.严格模式
+    * 规定只要函数使用了默认值、解构赋值、或者扩展运算符，内部函数就不能显示设定为严格模式
+* 4.name属性
+    * 函数的name属性，返回该函数的函数名
+    * Function构造函数返回的函数实例，name属性的值为anonymous
+    * bind返回的函数，name属性会加上bound前缀
+* 5.箭头函数
+    ```text
+    var f = v => v; //等同于
+    function f(v) {
+        return v;
+    }
+    ```
+    * 如果箭头函数不需要参数或者多个参数，使用圆括号
+    * 如果箭头函数的代码块对于一行则用大括号括起来
+    * 如果直接返回一个对象，需要用圆括号括起来
+    * 箭头函数可以与变量解构结合
+    * tips
+        * 函数的体内的this对象，就是定义时所在的对象，而不是使用时所在的对象(箭头函数没有this,导致指向外层代码块)
+        * 不可以当作构造函数
+        * 不可以使用arguments对象，该对象在函数体内不存在
+        * 不可以使用yield
