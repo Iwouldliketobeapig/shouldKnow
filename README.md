@@ -6,7 +6,7 @@
 
 3.<a href="https://daneden.github.io/animate.css/" target="_blank">CSS动画库(https://daneden.github.io/animate.css/)</a>.
 
-4.<a href="http://caniuse.com/" target="_blank">CSS兼容性查询(https://daneden.github.io/animate.css/)</a>.
+4.<a href="http://caniuse.com/" target="_blank">兼容性查询(http://caniuse.com/)</a>.
 
 5.<a href="https://stackoverflow.com/" target="_blank">stackoverflow(https://stackoverflow.com/)</a>.
 

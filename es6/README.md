@@ -301,3 +301,109 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * 不可以当作构造函数
         * 不可以使用arguments对象，该对象在函数体内不存在
         * 不可以使用yield
+    *  嵌套得箭头函数
+* 6.绑定this[提案]：函数绑定运算符石并排的两个冒号（::）,左边是一个对象，右边是一个函数
+    ```text
+    foo::bar; 
+    bar.bind(foo); //等同于
+    ```
+    * 如果双冒号左边为空，右边是一个对象的方法，等于将方法绑定在该对象上面
+### 数组的扩展
+* 1.扩展运算符：将一个数组转为用逗号分隔的参数序列
+    * 替代数组apply方法
+    ```text
+    var arr = [1, 2, 3];
+    function f(x, y, z) {
+        // 代码块
+    }
+    f.apply(null, arr);
+    f(...arr); //等同
+    ```
+    * 合并数组
+    * 与解构赋值结合
+    * 函数的返回值
+    * 字符串
+    ```text
+    [..."hi"] //["h", "i"]
+    ```
+    * 实现Iterator接口的对象、
+    * Map 和 Set解构， Generator函数
+* 2.Array.from(): 用于将类似数组对象(array-like-object)和可遍历的对象
+    ```text
+    let arrayLike = {
+        "0", "a",
+        "1", "b",
+        length: 2
+    }
+    // ES5写法
+    var arr1 = [].slice.call(arrayLike); // ["a", "b", "c"]
+    ```
+    // ES6写法
+    var arr2 = Array.from(arrayLike);
+    * 只要部署了Iterator(字符串和Set结构)接口的数据结构，都能将其转换为数组
+    ```text
+    Array.from("du");
+    // ["d", "u"]
+    let nSet = new Set(["a", "b"]);
+    ```
+    * Array.from还接受第二个参数，对元素进行处理，处理后再放入到数组中
+* 3.Array.of(): 将一组值，转换为数组
+* 4.copyWithin(): 在当前数组内部，将指定位置的成员复制到其他位置
+    ```text
+    copyWidthin(target, start, end);
+    // target(必须): 从该位置开始替换数据
+    // start: 从该位置开始读取数据
+    // end: 到该位置停止读取数据
+
+    [1, 2, 3, 4].copyWithin(0, 2);
+    // [3, 4, 3, 4]
+    ```
+* 5.数组实例的find()和findIndex()
+    find(): 找出第一个符合条件的数组成员
+    findIndex(): 找出第一个符合条件的数组成员的位置
+* 6.数组实例fill(): 使用给定值，填充一个数组
+    ```text
+    new Array(3).fill(7)
+    // [7, 7, 7]
+    ```
+* 7.数组实例enteries(),keys()和values(): 用于数组遍历
+    ```text
+    const arr = [1, 2, 3];
+
+    for(let [index, ele] of arr.enteries()) {
+        console.log(index, ele);
+    } // enteries()是对键值对得遍历
+    // 0 1
+    // 1 2
+    // 2 3
+
+    for(let index of arr.keys()) {
+        console.log(index);
+    } //keys()是对键名的遍历
+    // 0
+    // 1
+    // 2
+
+    for(let val of arr.values()) {
+        console.log(val);
+    } // values()是对键值的遍历
+    // 1
+    // 2
+    // 3
+    ```
+* 8.数组实例的includes(): 查找数组时候包含给定的值，返回一个布尔值
+    ```text
+    [1, 2, 3].inclides(2, 0) // val: 给定的只, index: 开始搜索的位置
+    // true
+    ```
+* 9.数组的空位: 数组的某一个位置没有任何值
+    * 由于空位处理规则非常不统一，避免出现空位
+### 对象的扩展
+* 1.属性的简洁表示法: 允许直接写入变量和函数，作为对象的属性和方法
+    ```text
+    var foo = "dutao";
+    var baz = {foo};
+    baz // {foo: "dutao"};
+    ```
+* 2.属性名表达式
+    
