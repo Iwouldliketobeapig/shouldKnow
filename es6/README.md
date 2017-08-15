@@ -406,4 +406,38 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     baz // {foo: "dutao"};
     ```
 * 2.属性名表达式
-    
+    ```text
+    var obj = {};
+    obj.abc = 123; // 等价于
+    obj["a" + "bc"] = 123
+    ```
+    * 可以将表达式放在方括号内
+    ```text
+    let testKey = "foo";
+    let obj = {
+        [testKey]: "dutao"
+    }
+    // {foo: "dutao"}
+    ```
+    * 表达式也可以定义方法名
+    * 属性名表达式与简洁表达式不能同时使用
+    * 属性名表达式如果是一个对象，默认情况下会被转换为字符串
+* 3.函数的name属性：返回函数名
+    * 如果对象的方法是用了getter和setter.该方法的属性的描述的对象的get和set属性上面
+    * bind方法创造的函数，name属性返回bound加上原函数的名字；Function构造函数创造的函数，name属性返回anonymous
+    * 如果对象的方法是一个Symbol,那么name属性返回的是这个Symbol值得描述
+* 4.Object.is(): 同值相等
+* 5.Object.assign(): 对象合并
+    * 只拷贝对象的自身属性，不拷贝继承属性，也不拷贝不可枚举的属性
+    * 属性名为Symbol值得属性，也会被拷贝
+    * 实现的是浅拷贝
+    * 嵌套对象，遇到同名属性是替换而不会添加嵌套里面的属性
+    ```text
+    const obj1 = { a: { b: "du", c: "tao" } };
+    const obj2 = { a: { b: "zhang" } };
+    Object.assign(obj1, obj2);
+    // { a: { b: "zhang" } }
+    ```
+    * 可以用来处理数组，把数组当作对象处理
+* 6.属性的可枚举和遍历
+* 7.Object.getOwnPropertyDescriptors(): 返回某个对象属性的描述对象
