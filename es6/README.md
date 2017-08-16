@@ -484,7 +484,56 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         ``` 
         * 会过滤属性名Symbol值的属性
 * 10.对象的扩展运算符
-    * 解构赋值: 将所有可遍历的、但尚未被读取的属性，分配到指定的对象上面
+    * (1)解构赋值: 将所有可遍历的、但尚未被读取的属性，分配到指定的对象上面
         ```text
-        
+        let { x, ...y } = { x: 1, a: 2, b: 3, c: 4 };
+        x // 1
+        y // { a: 2, b: 3, c: 4 }
         ```
+        * 解构赋值要求等号右边是一个对象
+        * 解构赋值必须是最后一个参数
+        * 解构赋值的拷贝是浅拷贝
+    * (2)扩展运算符：用于取出参数对象的所有可遍历属性，拷贝到当前对象之中
+        ```text
+        let z = { a: 3, b: 4 };
+        let n = {...z};
+        n // { a: 3, b: 4 }
+        ```
+        * 可以用于合并两个对象
+        ```text
+        let ab = { ...a, ...b };
+        ```
+        * 如果用户自定义的属性，放在扩展运算符后面，则运算符内部的同名属性会被覆盖掉
+        ```text
+        let obj = { ...a, ...b }
+        // 等同于
+        let obj1 = Object.assign({} , a, b);
+        ```
+        * 对象扩展运算符后面可以跟表达式
+        * 如果扩展运算符的参数是null或undefined，值被忽略，不会报错
+        * 扩展运算符的参数对象中，如果有取值函数get,这个函数是会执行的
+        ```text
+        let runtimeError = {
+            ...a,
+            ...{
+                get x() {
+                    throw new Error("throw now");
+                }
+            }
+        }
+        ```
+* 11.Null 传导运算符[提案]: ?.
+    ```text
+    const firstName = (message
+    && message.body
+    && message.body.user
+    && message.body.user.firstName) || 'default';
+    // 等价于
+    const firstName1 = message?.body?.user?.firstName || 'default';
+    ```
+    * 只要其中一个返回null或undefined,就不在往下运算
+    * 四种用法
+        * obj?.prop // 读取对象属性
+        * obj?.[expr] // 同上
+        * func?.(...args) // 函数或对象方法的调用
+        * new C?.(...args) // 构造函数的调用
