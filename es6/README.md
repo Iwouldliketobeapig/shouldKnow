@@ -441,3 +441,50 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     * 可以用来处理数组，把数组当作对象处理
 * 6.属性的可枚举和遍历
 * 7.Object.getOwnPropertyDescriptors(): 返回某个对象属性的描述对象
+    * 结合Object.defineProperties或者Object.create实现拷贝
+    * 可以用来实现Mixin(混入)模式
+* 8.__proto__属性，Object.setPrototypeOf(),Object.getPrototypeOf()
+    * __proto__用来读取或者设置当前对象的prototype对象
+        ```text
+        var obj = {
+            methods: function() {};
+        }
+        obj.__proto__ = someOtherObj;
+        ```
+    * Object.setPrototypeOf(obj, prototype): 设置一个对象的prototype对象，返回参数对象本身;
+        ```text
+        let proto = {};
+        let obj = {a: 10};
+        Object.setPrototypeOf(obj, proto);
+        proto.b = 20;
+        proto.c = 30;
+
+        obj.b; // 20
+        ```
+        * 如果第一个参数不是对象，会自动转换为对象
+    * Object.getPrototypeOf(): 用于读取一个对象得原型对象
+    ```text
+    Object.getPrototypeOf(obj);
+    ```
+* 9.Object.keys(),Object.valuse(),Object.entries()
+    * Object.keys: 返回一个数组，成员是参数对象自身得（不含继承得）所有可遍历属性得建名
+    * Object.value: 返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值
+        * 会过滤属性名Symbol值得属性
+        * 如果Object.value方法的参数是一个字符串，会返回各个字符串组成的一个数组
+    * Object.entries: 返回一个数组，成员是参数对象自身的（不含继承）所有可遍历属性的键值对数组
+        ```text
+        let obj = {a: "du", b: "tao"};
+        
+        object.keys(obj);
+        // ["a", "b"]
+        Object.value(obj);
+        // ["du", "tao"]
+        Object.entries(obj);
+        // [["a", "du"], ["b", "tao"]]
+        ``` 
+        * 会过滤属性名Symbol值的属性
+* 10.对象的扩展运算符
+    * 解构赋值: 将所有可遍历的、但尚未被读取的属性，分配到指定的对象上面
+        ```text
+        
+        ```
