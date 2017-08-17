@@ -539,3 +539,84 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * new C?.(...args) // 构造函数的调用
 ### Symbol
 * 1.概述：保证每个属性的名字都是独一无二的
+* 2.作为属性名的Symbol: 保证不会出现同名的属性
+    * Symbol值作为对象属性名时，不能用点运算符
+    * Symbol值作为属性名时，该属性还是公开属性
+* 3.消除魔术字符串
+* 4.属性名的遍历
+    * 不能被for...in、for...of、Object.keys()、Object.getOwnProtertyNames()、JSON.stringify()返回。Object.getOwnProtertySymbols()获取对象的所有Symbol属性名
+    * 非私有的你内部实现方法的效果
+* 5.Symbol.for(),Symbol.keyFor()
+    * Symbol.for可以实现重新使用同一个Symbol值
+    * Symbol.for会登记在全局作用域中，Symbol不会
+    * Symnol.keyFor返回一个以登记的Symbol类型值得key
+    ```text
+    let s1 = Symbol.for("dutao");
+    let s2 = Symbol.for("dutao");
+
+    s1 === s2 //true
+    Symobol.keyFor(s2); //"dutao"
+    ```
+* 6.实例：模块的Singleton模式
+    * Singleton模式指的是调用一个类，任何时候返回的都是同一个实例
+* 7.内置Symbol值
+    * (1)Symbol.hasInstance: 对象的Symbol.hasInstance属性，指向一个内部方法，会在instanceof运算市自动调用
+        ```text
+        class MyClass {
+            [Symbol.hasInstance](foo){
+                return foo instance of Array;
+            }
+        }
+
+        [] instanceof new MyClass() //true
+        ```
+    * (2)Symbol.isConcatSpreadable: 对象的Symbol.isConcatSpreadable属性是一个布尔值，表示使用Array.prototye.concat()时，是否可以展开
+        ```text
+        let arr = ["a", "b"];
+        let arr1 = ["c", "d"];
+        arr1.concat(arr, "e");
+        // ["c", "d", "a", "b", "e"]
+        arr[Symbol.isConcatSpreadable] //undefined
+
+        arr[Symbol.isConcatSpreadable] = false;
+        arr1.concat(arr, "e");
+        // ["c", "d", Array(2), "e"]
+        ```
+        * 对于一个类来说，Symbol.isConcatSpreadable属性必须写成实例的属性
+### Set和Map数据结构
+* 1.Set
+    * 基本用法：类似数组，但是成员的值都是唯一的，没有重复的值
+        * Set本身是一个构造函数，用来生成Set数据结构
+            ```text
+            const s = new Set();
+            [2, 2, 4].forEach(x => s.add(x));
+            s // [2, 4]
+            ```
+        * Set函数可以接受一个数组（或者具有iterable接口的其他数据结构）作为参数，用来初始化
+        * 可以用于数组去重
+        * 在Set内部两个NaN是相等的，两个对象总是不相等的
+    * Set实例的属性和方法
+        ```text
+        Set.prototype.constructor // 构造函数，默认是Set函数
+        Set.prototype.size // 返回Set实例的成员总数
+
+        add(value) // 添加某个值
+        delete(value) // 删除某个值，返回一个布尔值，表示删除是否成功
+        has(value) // 返回一个布尔值，Set是否有这个成员
+        clear() // 清空Set，无返回值
+        ```
+        * Arry.from可以将Set结构转换为数组
+    * 遍历操作
+        ```text
+        keys() // 返回键名的遍历器
+        values() // 返回键值得遍历器
+        entries() // 返回键值对的遍历器
+        forEach() // 使用回调函数遍历每个成员
+        ```
+        * （1）keys(),values(),entries()
+            * Set结构键值和键名时同一个值，所以keys()和values()的行为完全相同
+        * （2）forEach()
+            * Set结构的实例的forEach方法，用于执行某个成员执行某种操作，没有返回值
+        * （3）遍历的应用
+            * set和filter方法也可以用于Set
+            
