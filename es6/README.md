@@ -619,4 +619,44 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
             * Set结构的实例的forEach方法，用于执行某个成员执行某种操作，没有返回值
         * （3）遍历的应用
             * set和filter方法也可以用于Set
-            
+* 2.WeakSet
+    * 含义：不重复对象的得集合
+        * WeakSet中的对象都是弱引用不计入垃圾回收机制
+        * 只要对象在外部消失，在WeakSet中也消失了
+        * WeakSet不可遍历
+    * 语法：WeakSet是一个构造函数，可以用new命令，创建WeakSet数据结构
+        * 可以接受一个数组或类似数组（Iterable）的对象作为参数，该数组的所有成员，都会成为WeakSet实例对象的成员（数组的成员只能是对象）
+        * 三个方法
+        ```text
+        WeakSet.prototype.add(value); // 添加新成员
+        WeakSet.prototype.delete(value); // 清除指定成员
+        WeakSet.prototype.has(value); // 判断是否有指定值
+        ```
+* 3.Map
+    * 含义和基本用法
+        * 键值可以是各种类型，值-值的对应
+        * Map接受一个数组作为参数（数组的成员是一个个表示键值对的数组）
+            ```text
+            const map = new Map([
+                ["name", "dutao"],
+                ["titel", "zhangwenqian"]
+            ])
+            map // { "name" => "dutao", "title" => "zhangwenqian" }
+            ```
+        * 对同一个键多次赋值，后面的值将覆盖前面额值
+        * 只有对同一个对象的引用，Map结构才将其视为同一个键（Map的键是跟内存地址绑定的）
+        * 如果Map的键是一个简单的类型的值，只要两个值严格相等，Map将其视为同一个键（===）
+    * 实例的属性和操作方法
+        * size属性返回Map结构的成员总数
+        * set(key, value)设置或更新键值对，返回当前的Map对象=>链式写法
+        * get(key)获取对应的键值
+        * has(key)判断键是否存在
+        * delete(key)删除某个键值对
+        * clear()清除所有成员
+    * 遍历方法
+        ```text
+        keys() // 返回遍历的键名
+        values() // 返回遍历的键值
+        entries() // 返回所有成员的遍历器
+        forEach() // 遍历所有成员
+        ```
