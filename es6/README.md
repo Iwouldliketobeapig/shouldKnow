@@ -539,6 +539,39 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * new C?.(...args) // 构造函数的调用
 ### Symbol
 * 1.概述：保证每个属性的名字都是独一无二的
+    ```text
+    let s = Symbol();
+    typeof s; // Symbol
+    ```
+    * Symbol前不能使用new命令，因为生成的Symbol是一种原始类型的值，不是对象
+    * Symbol接受一个字符串参数，表示对Symbol实例的描述
+        ```text
+        let s1 = Symbol("para1");
+        let s2 = Symbol("para2");
+
+        s1 // Symbol(para1);
+        s2 // Symbol(para2);
+        ```
+    * 如果Symbol的参数是一个对象，如果对象有toString,描述toString的返回值，否则为Symbol[Object Object]
+        ```
+        const obj = {
+            toString() {
+                return "dutao";
+            }
+        }
+        const obj1 = {
+            to() {
+                return "dutao"
+            }
+        }
+        const s = Symbol(obj);
+        const s1 = Symbol(obj1);
+        s // Symbol(dutao);
+        s1 // Symbol([Object Object]);
+        ```
+    * 相同的Symbol描述，返回的值是不相同的
+    * Symbol不能与其他类型的的值进行运算，会报错
+    * Symbol可以转为为字符串和布尔值
 * 2.作为属性名的Symbol: 保证不会出现同名的属性
     * Symbol值作为对象属性名时，不能用点运算符
     * Symbol值作为属性名时，该属性还是公开属性
@@ -660,3 +693,4 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         entries() // 返回所有成员的遍历器
         forEach() // 遍历所有成员
         ```
+            
