@@ -701,3 +701,42 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * （5）Json转为Map: JSON转为Mapp,正常情况下，所有键名都是字符串
 * 4.WeakMap
     * 含义：WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名
+        * WeakMap的键名所指向的对象，不计入垃圾回收机制(键名所引用的对象都是弱引用，一旦不需要，WeakMap里面的键名对象和所对应的键值对会自动消失)
+        * WeakMap结构有足浴防止内存泄漏
+        * WeakMap弱引用的只是键名，而不是键值，键值依然是正常引用
+    * WeakMap语法
+        * 没有遍历操作(没有key(),values,entries),没有size属性
+        * 因为不确定性，不能渠道键名，不能清空(不支持clear)
+        * WeakMap的四个方法
+        ```text
+        get() // 获取键值
+        set() // 添加键值对
+        has() // 判断存在
+        delete() //删除键值对
+        ```
+    * WeakMap的用途
+### Proxy
+* 1.概述
+    * 用户修改某些操作的默认行为
+    * ES6提供Proxy构造函数，用来生成Proxy实例
+        ```text
+        var proxy = new Proxy(target, hander);
+        // target参数表示所要拦截的目标对象
+        // hander参数也是一个对象，用来定制拦截行为
+        ```
+        ```text
+        // 实例
+        var proxy = new Proxy({}, {
+            get: function(target, property) {
+                return 35;
+            }
+        });
+
+        proxy.time // 35
+        proxy.name // 35
+        ```
+### Reflect
+* 1.概述
+    * （1）将Object对象的一些属于语言内部的方法，放到Reflext对象上，Reflect对象可以拿到语言内部的方法
+    * （2）修改Object方法的返回结果，让其结果变得合理
+    * （3）让Object操作都变成函数行为
