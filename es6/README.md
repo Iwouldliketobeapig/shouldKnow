@@ -467,7 +467,7 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     Object.getPrototypeOf(obj);
     ```
 * 9.Object.keys(),Object.valuse(),Object.entries()
-    * Object.keys: 返回一个数组，成员是参数对象自身得（不含继承得）所有可遍历属性得建名
+    * Object.keys: 返回一个数组，成员是参数对象自身得（不含继承得）所有可遍历属性得键名
     * Object.value: 返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值
         * 会过滤属性名Symbol值得属性
         * 如果Object.value方法的参数是一个字符串，会返回各个字符串组成的一个数组
@@ -701,3 +701,46 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * （5）Json转为Map: JSON转为Mapp,正常情况下，所有键名都是字符串
 * 4.WeakMap
     * 含义：WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名
+### Proxy
+* 1.概述
+    * 如果handler没有设置任何拦截，等同于直接通向原对象
+    * Proxy实例也可以作为其他对象的原型对象
+    * 同一个拦截器函数，可以设置拦截多个对象
+    * 对于可以设置、但没有设置拦截的操作，直接落在目标对象上，按照原先的方式产生结果
+        ```text
+        get(target, propKey, receiver) // 拦截对象属性的读取
+        set(target, proKey, value, receiver) // 拦截对象属性的设置
+        has(target,propKey) // 拦截propKey in proxy的操作
+        deketeProperty(target, propKey) // 拦截delete proxy[propKey]操作
+        ownKeys(target) // 拦截Object.getOwnPropertyNames(proxy)和Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)，返回一个数组，返回目标对象所有自身的属性的属性名
+        getOwnPropertyDescriptor(target, propKey) // 拦截Object.getOwnPropertyDescriptor(proxy, propKey),返回属性的描述对象
+        defineProperty(target, propKey, propDesc) // 拦截Object.defineProperty(proxy, propKey, propDesc)和defineProperties(proxy, propDescs),返回一个布尔值
+        preventExtensions(target) // 拦截Object.preventExtensions(proxy)【让一个对象变得不可扩展，永远不能添加新属性】,返回一个布尔值
+        getPrototypeOf(target) // 拦截Object.getPrototypeOf(proxy); 返回一个对象
+        isExtensible(target) // 拦截Object.isExtensible【判断一个对象是否可扩展】, 返回一个布尔值
+        setPrototypeOf(target, proto) // 拦截Object,setPrototypeOf(proxy, proto),返回一个布尔值
+        apply(target, object, args) // 拦截Proxy实例函数调用操作
+        construct(target, args) // 拦截Proxy实例作为构造函数调用的操作
+        ```
+* 2.实例的方法
+    * get()
+        ```text
+        const person = {
+            name: "dutao"
+        };
+        const proxy = new Proxy(person, {
+            get (target, property) {
+                if (property in target) {
+                    return target[property]
+                } else {
+                    throw new ReferenceError(`Property ${property} is not defined`);
+                }
+            }
+        });
+        proxy.name // "dutao"
+        proxy.name1 
+        // VM392:9 Uncaught ReferenceError: Property name1 is not defined
+            at Object.get (<anonymous>:9:27)
+            at <anonymous>:1:6
+        ```
+        * 读取属性的操作(get),转变为执行某个函数，实现属性的链式操作
