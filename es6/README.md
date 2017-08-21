@@ -776,6 +776,8 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
             at <anonymous>:1:6
         ```
         * 读取属性的操作(get),转变为执行某个函数，实现属性的链式操作
+        * 如果一个书不可配置(configurable)和不可以写(writable),则该属性不可代理
+    * set()
 ### Reflect
 * 1.概述
     * （1）将Object对象的一些属于语言内部的方法，放到Reflext对象上，Reflect对象可以拿到语言内部的方法

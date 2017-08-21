@@ -1,15 +1,15 @@
+// 链式操作
 let chain = (function(){
   return val => {
     let arrFun = [];
     let proCha = new Proxy({}, {
       get (target, propKey) {
         if (propKey === "chain") {
-          console.log(arrFun);
           return arrFun.reduce((value, fn) => {
             return fn(value);
           }, val)
         }
-        arrFun.push(globalM.propKey);
+        arrFun.push(globalM[propKey]);
         return proCha;
       }
     });
@@ -20,7 +20,7 @@ let chain = (function(){
 // test
 var globalM = {}
 globalM.include = str => {
-  if (String(str).include("srt")) {
+  if (String(str).includes("str")) {
     return str;
   }
 }
