@@ -778,8 +778,74 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         * 读取属性的操作(get),转变为执行某个函数，实现属性的链式操作
         * 如果一个书不可配置(configurable)和不可以写(writable),则该属性不可代理
     * set()
+        * 写验证器(./demo/validator.proxy.js)
+        * 结合get可以在对象的读写操作前执行一些操作
+    * apply()
+        * 拦截函数的调用、call、apply操作
+    * has()
+        * 拦截hasOwnproperty操作和in运算符
+        * 如果原对象不可配置或者进制扩展，has拦截会报错(Object.freeze(obj)不可配置，Object.preventExtensions(obj)不可扩展)
+        * has拦截对for...in循环不生效
+    * construct()
+        * 方法用于拦截new命令
+    * deleteProperty()
+        * 拦截delete操作，如果这个方法抛出错误或者返回false,当前属性无法被删除
+    * defineProperty()
+        * 拦截Object.defineProperty()和Object.defineProperties()
+    * getOwnPropertyDescriptor()
+        * 拦截Object.getOwnPropertyDescriptor()
+    * getPrototypeOf()
+        * 拦截获取对象原型
+    * isExtensible()
+        * 拦截Object.isExtensible
+    * ownKeys()
+        * 拦截对象自身属性的读取操作
+    * preventExtensions()
+        * 拦截Object.preventExtensions()
+    * setPrototypeOf()
+        * 拦截Object.setPrototypeOf方法
+* 3.Proxy.revocable()
+    * Proxy,revocable方法返回一个可取消的Proxy实例
+    * Proxy.revocable的一个使用场景，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问
+* 4.this
+    * Proxy代理的情况下，目标对象内部的this关键字会指向Proxy代理
+* 5.web服务的客户端
+    * 很合适用来写 Web 服务的客户端
 ### Reflect
 * 1.概述
     * （1）将Object对象的一些属于语言内部的方法，放到Reflext对象上，Reflect对象可以拿到语言内部的方法
     * （2）修改Object方法的返回结果，让其结果变得合理
     * （3）让Object操作都变成函数行为
+    * （4）Reflect对象的方法与Proxy对象的方法是一一对应的，只要是Proxy上的方法都能在Reflect上找到（利用Reflect来完成默认行为"./validator.proxy.js"）
+* 2.静态方法
+    * 跟Proxy一样，提供十三个静态方法
+* 3.实例：使用Proxy实现观察者模式
+### Promise对象
+* 1.Promise的含义
+    * 是一个容器，里面保存着某个未来才会结束的事件的结果
+    * Promise特点
+        * 对象的状态不会受外界的影响(Pending, Fulfiled,Rejected)
+        * 一旦状态改变，就不会再变(Pending->Fulfiled,Pending->Rejected)
+        * 缺点
+            * 一旦新建它就会立即执行，无法取消
+            * 不设置回调函数，Promise内部抛出的错误，不会反应到外部
+            * 处于Pending状态时，无法得知目前进展到哪一个阶段
+* 2.基本用法
+    ```text
+    var promise = new Promise(function(resolve, reject){
+        // some code
+        if (/*异步操作成功*/) {
+            resolve(value); // 将Pending -> Fulfiled
+        } else {
+            reject(error); // 将Pending -> Rejected,并抛出错误
+        }
+    });
+
+    // Promise实例生成后，用then方法分别给Resolvue状态和Rejected状态回调函数
+    promise.then(function(value) { //then方法在当前所有同步任务执行完才会执行
+        // success
+    }, function(error) {
+        // failure
+    });
+    ```
+
