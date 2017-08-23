@@ -848,4 +848,72 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         // failure
     });
     ```
-
+    * 调用resolve或reject并不会终止Promise的函数的执行
+    * 
+* 3.Promise.prototype.then()
+    * then方法定义在Promise的原形链上，then方法返回一个新的Promise实例（可以采用链式写法，第一个回调函数执行完成后，返回值可以作为第二个函数的参数）
+* 4.Promise.prototype.catch()
+    * 指定发生错误时候的别名 === .then(null, rejectfn())【区别在"./demo/promise.cathc.then.js"】;
+    * then方法抛出的错误也会被catch获取
+    * 如果Promise的状态已经是resolved,再抛出错误是无效的
+    * 没有catch方法错误不会被捕获（Node的unhandledRejection事件，专门监听未捕获的时间"./demo/promise.cathc.then.js"）
+    * catch也是一个Promise函数可以继续链式写法,catch无法获取链式写法后面的抛出的错误
+* 5.Promise.all()
+    * 将多个Promise实例包装成一个新的Promise实例,如果不是Promise实例，则调用Promise.resolve()转为Promise实例
+        ```text
+        let p = new Promise([p1, p2]);
+        ```
+    * 只有p1,p2的状态都变为fulfilled,p的状态才会变成fulfilled，且返回一个数组，传递给P的回调函数
+    * 任意一个被rejected,p的状态就变成rejected,此时这个rejected作为p的返回值，传递给p的回调函数
+    * 作为参数Pormise实例自己定义了catch方法，一旦被rejected,不会触发Promise.all()的catch方法
+* 6.Promise.race()
+    * 将多个Promise实例包装成一个新的Promise实例，获取第一个返回实例改变的状态返回值
+* 7.Promise.resolve()
+    * 将现有对象转为Promise对象
+        * 参数是一个Promise实例，不做任何改变
+        * 参数是一个thenable对象，转为Promise对象，然后立即执行thenable对象的then方法
+            ```text
+            let thenable = {
+                then: function(resolve, reject) {
+                    resolve(true);
+                }
+            }
+            ```
+        * 参数不是具有then方法的对象，或根本不是对象，返回一个新的Promise对象，状态为Resolved
+        * 不带有任何参数，直接返回一个Resolved状态的Promise对象
+* 8.Promise.reject()
+    * 返回一个新的Promise实例，该实例的状态为rejected
+* 9.自己部署两个有用得方法done()和finally()
+### Iterator和for...of循环
+* 1.Iterator的概念
+    * 是一种接口，为各种不同的数据结构提供统一的访问机制，任何数据结构只要部署了Iterator接口，就可以完成遍历操作
+    * 过程
+        * （1）创建一个指针对象，指向当前数据结构的起始位置
+        * （2）第一次调用指针对象next方法，可以将指针指向数据结构的第一个成员
+        * （3）不断的调用next,知道指向数据结构的结束位置
+* 2.默认Iterator接口
+    * ES6原生具备Iterator接口的数据
+    ```text
+    Array, Map, Set, String, TypedArray, 函数的arguments对象， NodeList对象
+    ```
+    * 其他数据结构的Interator接口，都需要在Symbol.Interator属性上部署，才会被for...of遍历部署
+* 3.调用Iterator接口的场合
+    * （1）结构赋值
+    * （2）扩展运算符
+    * （3）yield*
+    * （4）其他场合
+        ```text
+        for...of
+        Array.from()
+        Map(), Set(), WeakMap(), WeakSet()（比如new Map([['a',1],['b',2]])）
+        Promise.all()
+        Promise.race()
+        ```
+* 4.字符串的Iterator接口
+* 5.遍历器对象return(), throw()
+* 6.for...of循环
+    * 内部调用Symbol.iterator方法
+### Generator 函数的语法
+* 1.简介
+    * Generator函数是一个状态机，封装多个内部状态(./demo/Generator.begin.js)
+    
