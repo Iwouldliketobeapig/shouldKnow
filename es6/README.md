@@ -916,4 +916,18 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
 ### Generator 函数的语法
 * 1.简介
     * Generator函数是一个状态机，封装多个内部状态(./demo/Generator.begin.js)
+    * yield表达式
+        * （1）遇到yield就暂停
+        * （2）执行过程中没有遇到yield,遇到return则{value: "retVal", done: true }
+        * （3）最后都没有return{value: underfined, done: true }
+        * 惰性求值(./demo/Generator.begin.js)
+        * Generator不使用yield成为暂缓存执行函数
+        * yield只能在Generator函数中使用
+        * yield在表达式中，必须放在圆括号内
+        * yield作为函数参数，放到赋值表达式的右边，可以不加括号
+    * 与Iterator接口的关系
+* 2.next方法的参数
+    * next可以带一个参数，该参数被当作上一个yield表达式的返回值（./demo/Genertor.next.js）
+* 3.for...of循环
+    * 可以自动遍历Generator函数生成的Iterator对象，此时不需要再调用next方法，一旦遇到return就直接跳出，不会获取return的返回值(./demo/Generator.obj.ergodic.js)
     
