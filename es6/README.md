@@ -930,4 +930,5 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
     * next可以带一个参数，该参数被当作上一个yield表达式的返回值（./demo/Genertor.next.js）
 * 3.for...of循环
     * 可以自动遍历Generator函数生成的Iterator对象，此时不需要再调用next方法，一旦遇到return就直接跳出，不会获取return的返回值(./demo/Generator.obj.ergodic.js)
-    
+* 4.Generator.prototype.throw()
+    * 
