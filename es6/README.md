@@ -931,4 +931,20 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
 * 3.for...of循环
     * 可以自动遍历Generator函数生成的Iterator对象，此时不需要再调用next方法，一旦遇到return就直接跳出，不会获取return的返回值(./demo/Generator.obj.ergodic.js)
 * 4.Generator.prototype.throw()
-    * 
+    * 可以在函数体外抛出错误，然后再Generator函数体内捕获
+    * throw方法接收一个参数，该参数会被catch语句接收
+    * Generator内部和外部都没有try...catch代码块，程序将报错，中断执行
+    * throw方法捕获后，附带执行一次next方法（./demo/Generator.throw.study.js）
+    * 一旦Genterator执行过程中抛出错误，没有在内部捕获，就不在执行下去
+* 5.Generator.prototype.return()
+    * 给定返回的值，并且终结Generator函数，不传参数返回值为underined
+    * 如果函数体内有try...finally，return会延迟到finaly执行完；(./demo/Generator.return.study.js)
+* 6.yield* 表达式
+    * 在Genterator内部调用一个另一个Genterator函数需要用yield*（./demo/Generator.yield.js）
+* 7.作为对象属性的Generator函数
+    ```text
+    let obj = {
+        * gen0 (){},
+        gen1: function* (){}
+    }
+    ```

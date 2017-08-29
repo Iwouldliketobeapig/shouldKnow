@@ -13,3 +13,8 @@
 ```text
 @import url(style.css)
 ```
+
+###### 3.css书写规则
+* 1. stylelint,旗下插件stylelint-order书写顺序
+* 2. csslint
+* 3. CSScomb帮你排序
