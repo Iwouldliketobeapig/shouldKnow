@@ -948,3 +948,65 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
         gen1: function* (){}
     }
     ```
+* 8.Generator函数的this(./demo/Generator.this.js)
+    * Generator函数返回一个遍历器，是Generator函数的实例，继承了Genterator上的prototype上的实例
+    * Generator返回的遍历器对象，不是this对象
+    * 不能跟new命令一起使用
+* 9.含义
+    * Generator与状态机
+    ```text
+    function *status(){
+        while(true) {
+            console.log("Tick");
+            yield;
+            console.log("Tock");
+            yield;
+        }
+    }
+    ```
+    * Generator与协程
+        * 可以并行执行、交换执行权的线程（或函数），就称为协程
+* 10.应用
+    * （1）异步操作的同步化表示
+    * （2）控制流管理、
+    * （3）部署Iterator接口
+    * （4）作为数据结构
+### Generator函数的异步应用
+* Thunk函数的含义（传名函数）
+```text
+var thunk = function () {
+    return x + 5;
+}
+function f(thunk) {
+    return thunk() * 2;
+}
+```
+* javascript语言是传值调用，Thunk将多参数函数，将其替换成一个只接收回调函数作为参数的单调函数。
+```
+// 正常版本的readFile（多参数版本）
+fs.readFile(fileName, callback);
+
+// Thunk版本的readFile（单参数版本）
+var Thunk = function (fileName) {
+  return function (callback) {
+    return fs.readFile(fileName, callback);
+  };
+};
+
+var readFileThunk = Thunk(fileName);
+readFileThunk(callback);
+```
+* Thunk函数自动管理流程（./demo/Thunk.generator.js）
+* co模块（用于Generator函数的自动执行）
+* 基于Promise对象的自动执行
+* 处理并发的异步操作
+* 处理Stream
+### async函数
+* 1.含义
+    * async是Generator函数的语法糖，并做了改进
+        * 内置执行器
+        * 更好的语义
+        * 更广的适用性
+        * 返回值是Promise
+* 2.基本用法
+    * 
