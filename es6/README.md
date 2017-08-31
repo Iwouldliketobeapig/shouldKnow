@@ -1008,5 +1008,22 @@ readFileThunk(callback);
         * 更好的语义
         * 更广的适用性
         * 返回值是Promise
-* 2.基本用法
-    * 
+* 2.基本用法(./demo/async.start.js)
+* 3.语法(./demo/async.start.js)
+    * 返回Promise对象
+    * Promise对象的状态变化，async返回的Promise,除return和抛出错误外，await全部执行完才会改变状态机制
+    * 如果await后面的Promise状态为Promise.reject,且没有对代码块做处理，则整个asyn函数都会中断执行(./demo/async.await.reject.js)
+    * 错误处理
+    * 注意事项
+        * 如果异步操作不存在继发关系，用同事触发
+        * await只用在async函数中，用在普通函数中会报错
+        * 把forEach参数改为async也会出现问题
+* 4.async函数的实现原理
+* 5.按顺序完成异步操作
+* 6.异步遍历器[提案]
+### Class的基本语法
+* 1.简介
+    * ES6的类可以看做构造函数的另一种写法
+    * 方法名之间不能打空格
+    * 类的所有方法都定义在类的prototye属性上
+    * 可以利用Object.assign向类添加方法
