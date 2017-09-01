@@ -1,3 +1,5 @@
+let smail = "smail";
+
 class person {
   constructor(name, sex) {
     this.name = name;
@@ -10,6 +12,9 @@ class person {
   }
   consoleSex () {
     console.log(this.sex);
+  }
+  [smail] () {
+    console.log("smail");
   }
 }
 
@@ -28,3 +33,6 @@ dutao.consoleName();
 dutao.consoleSex();
 dutao.hi();
 dutao.hiSex();
+dutao.smail();
+let personPro = Object.keys(person.prototype);
+console.log(personPro);
