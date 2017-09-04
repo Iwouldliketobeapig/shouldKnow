@@ -1055,9 +1055,32 @@ readFileThunk(callback);
 * 13.Class的静态方法
     * 在一个方法前加上static关键字，就不会被实例继承，直接通过类来调用
     * 父类的静态方法可以被子类继承
-* 14.Class的静态属性和实例属性
+* 14.Class的静态属性和实例属性[提案]
     * 静态属性的this绑定类而不是绑定实例
-    * （1）类的实例属性
-        * 类的实例属性可以用等式，写入类的定义之中
-    * （2）类的静态属性
-        * 在实例属性前加上static
+* 15.new.target属性(./demo/Class.new.target.js)
+    * 检测构造函数是不是由new调用的
+    * 子类的new.target等于子类
+### Class的继承
+* 1.简介
+    * 通过extends关键字实现继承
+    * 子类必须在constructor使用super()关键字，否则构建实例的时候会报错
+    * 在子类构造函数，只有咋调用super后才能使用this关键字
+* 2.Object.getPrototypeOf()
+    * 用来从子类上获取父类
+* 3.super关键字
+    * super代表父类，this指向子类
+    * super必须在constructor上生命
+    * 可以在函数中调用super
+* 4.类的prototype属性和__proto__属性
+    * 子类的__proto__属性，表示构造函数的继承，总是指向父类
+    * 子类的prototype.__proto__指向父类的prototye
+    * extends的继承目标
+        * extends关键字后面可以跟多种类型的值（可以继承任意函数）
+        * 子类继承Object类
+        * 不存在任何继承
+        * 子类继承null(跟不继承一样)
+    * 实例的__proto__属性
+        * 子类实例的__proto__属性指向父类的实例的__proto__属性，子类原形的原形是父类的原形
+* 5.原生构造函数的继承
+* 6.Mixin模式的实现
+    * 将多个类的接口混入到另一个类的
