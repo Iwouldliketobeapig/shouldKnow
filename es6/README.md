@@ -443,7 +443,7 @@ endsWith(s) //返回布尔值，表示参数字符串是否在原字符串的尾
 * 7.Object.getOwnPropertyDescriptors(): 返回某个对象属性的描述对象
     * 结合Object.defineProperties或者Object.create实现拷贝
     * 可以用来实现Mixin(混入)模式
-* 8.__proto__属性，Object.setPrototypeOf(),Object.getPrototypeOf()
+* 8.__proto__属性，Object.setPrototypeOf()[设置一个对象的prototype性能会比较低，不建议使用] ,Object.getPrototypeOf()
     * __proto__用来读取或者设置当前对象的prototype对象
         ```text
         var obj = {
@@ -1061,7 +1061,7 @@ readFileThunk(callback);
     * 检测构造函数是不是由new调用的
     * 子类的new.target等于子类
 ### Class的继承
-* 1.简介
+* 1.简介(./demo/Class.extend.start.js)
     * 通过extends关键字实现继承
     * 子类必须在constructor使用super()关键字，否则构建实例的时候会报错
     * 在子类构造函数，只有咋调用super后才能使用this关键字
@@ -1082,5 +1082,51 @@ readFileThunk(callback);
     * 实例的__proto__属性
         * 子类实例的__proto__属性指向父类的实例的__proto__属性，子类原形的原形是父类的原形
 * 5.原生构造函数的继承
-* 6.Mixin模式的实现
-    * 将多个类的接口混入到另一个类的
+* 6.Mixin模式的实现(./demo/Class.mixin.js)
+    * 将多个类的接口混入到另一个类
+### 修饰器[提案]
+### Module的语法
+* 1.概述
+    * import是编译时加载(静态加载)效率更高，扩展性更强，CommonJS是运行时加载；
+* 2.严格模式
+    * ES6模块自动采用严格模式
+        * 变量必须声明后再使用
+        * 函数的参数不能有同名属性，否则报错
+        * 不能使用with语句
+        * 不能对只读属性赋值，否则报错
+        * 不能使用前缀0表示八进制数，否则报错
+        * 不能删除不可删除的属性，否则报错
+        * 不能删除变量delete prop，会报错，只能删除属性delete global[prop]
+        * eval不会在它的外层作用域引入变量
+        * eval和arguments不能被重新赋值
+        * arguments不会自动反映函数参数的变化
+        * 不能使用arguments.callee
+        * 不能使用arguments.caller
+        * 禁止this指向全局对象
+        * 不能使用fn.caller和fn.arguments获取函数调用的堆栈
+        * 增加了保留字（比如protected、static和interface）
+* 3.export命令
+    * 模块实现主要由两个命令组成：export规定模块对外的接口，import引入其他模块的功能
+    * 一个文件是一个独立的模块，只能通过export输出变量，否则无法访问该模块的变量
+    * export可以用as对输出变量本来的名字就行重命名
+    ```text
+    let a = 2;
+    export {
+        a as varA
+    }
+    ```
+    * export只能处于模块的顶层
+* 4.import命令
+    * import可以用as将输入的变量重命名
+    * .js可以省略
+    * import有提升效果，优先执行
+    * import不能使用表达式和变量
+* 5.模块的整体加载
+    * 用*号指定一个对象，所有输出值都加载在这个对象上面
+    ```text
+    import * as obj form "module";
+    ```
+* 6.export default命令
+    * 用于设置模块的默认输出
+    * import后面不用加大括号，切名字随意
+    * 一个模块只能有一个默认输出
