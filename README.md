@@ -13,3 +13,5 @@
 6.windows下Node版本管理器gnvm
 
 7.<a href="https://github.com/expressjs/cors">cors处理跨域(https://github.com/expressjs/cors)</a>
+
+8.<a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">validate-commit-msg,git commit msg格式管理</a>
