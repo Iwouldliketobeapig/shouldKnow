@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack"
+    "dev": "webpack --config build/webpack.config.js"
   },
   "dependencies": {
     "webpack": "^3.4.1"

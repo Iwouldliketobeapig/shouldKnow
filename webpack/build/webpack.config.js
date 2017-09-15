@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   devtool: "eval-soutce-map", //配置生成Source Maps方便调试
-  entry: __dirname + "/app/main.js", //文件入口
+  entry: __dirname + "/src/main.js", //文件入口
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"
@@ -45,7 +45,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "test",
-      template: __dirname + "/app/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
+      template: __dirname + "/src/index.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
     })
   ],
 
