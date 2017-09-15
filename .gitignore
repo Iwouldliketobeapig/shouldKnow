@@ -1,1 +1,3 @@
 .idea
+webpack/public/*
+node_modules

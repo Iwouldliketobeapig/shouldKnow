@@ -1,0 +1,25 @@
+{
+  "name": "know",
+  "version": "1.0.0",
+  "description": "some knowledges",
+  "main": "no",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iwouldliketobeapig/shouldKnow.git"
+  },
+  "keywords": [
+    "knowledges"
+  ],
+  "author": "dutao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iwouldliketobeapig/shouldKnow/issues"
+  },
+  "homepage": "https://github.com/Iwouldliketobeapig/shouldKnow#readme",
+  "devDependencies": {
+    "validate-commit-msg": "^2.14.0"
+  }
+}
