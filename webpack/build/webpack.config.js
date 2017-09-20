@@ -21,7 +21,14 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_module/,
-        use: ["babel-loader"]
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["env"]
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
