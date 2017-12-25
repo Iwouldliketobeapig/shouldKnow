@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Iwouldliketobeapig/shouldKnow#readme",
   "devDependencies": {
     "husky": "^0.14.3",
+    "parcel-plugin-vue": "^1.4.0",
     "validate-commit-msg": "^2.14.0"
   }
 }
