@@ -7,14 +7,15 @@ const schema = {
       type: 'number',
       // maximum: 12,
       minimum: 2,
-      exclusiveMaximum: 12
-      // exclusiveMinimum: 2
+      exclusiveMaximum: 12, // 不包含边缘值
+      // exclusiveMinimum: 2,
+      multipleOf: 2.5 // 倍数
     }
   }
 };
 
 let valieDate = {
-  age: 11
+  age: 10
 }
 
 let valiedate = ajv.compile(schema);
