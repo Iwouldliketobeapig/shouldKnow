@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>css3测试</title>
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <style>
+      body{
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0px;
+        padding: 20px 0px;
+        border: solid #e4e4e4 1px;
+        border-radius: 8px
+      }
+      .box-shadow{
+        width: 200px;
+        height: 50px;
+        box-shadow: 10px 10px 10px #888;
+      }
+      .margin-bottom{
+        margin-bottom: 20px;
+      }
+      .border-image{
+        width: 200px;
+        height: 50px;
+        border:15px solid transparent;
+        border-image: url('../imgs/border.png') 30 30 round;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box-shadow yColor margin-bottom">
+        <span>box-shadow</span>
+      </div>
+      <div class="border-image margin-bottom yColor">
+        border-image
+      </div>
+    </div>
+    <div class="container">
+    </div>
+  </body>
+</html>
