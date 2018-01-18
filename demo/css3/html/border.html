@@ -23,6 +23,7 @@
       .bas-box{
         width: 200px;
         height: 50px;
+        border: 1px solid #e4e4e4;
       }
 
       /*border*/
@@ -52,6 +53,20 @@
         background-origin: content-box;
         background-repeat: no-repeat;
       }
+      .background-image{
+        background-image: url(../imgs/css.png), url(../imgs/css.png);
+      }
+
+      /*effect to text*/
+      .text-shadow{
+        text-shadow: 5px 5px 3px #58b9b2;
+      }
+      .word-wrap{
+        word-wrap: break-word;
+      }
+      .word-wrap>h6{
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
@@ -69,6 +84,15 @@
       </div>
       <div class="bas-box margin-bottom bColor background-origin">
         background-origin
+      </div>
+      <div class="bas-box margin-bottom bClor background-image">
+        two image
+      </div>
+    </div>
+    <div class="container">
+      <span class="text-shadow">我知道该怎么做</span>
+      <div class="bas-box margin-bottom word-wrap">
+        jashfjahfjjhajskdlfhjalsfhajskf <h6 class="gColor">word-warp</h6>
       </div>
     </div>
   </body>
