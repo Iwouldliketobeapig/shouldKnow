@@ -7,6 +7,7 @@
       body{
         width: 1200px;
         margin: 0 auto;
+        background: #eff5fc;
       }
       .container{
         display: flex;
@@ -16,6 +17,7 @@
         padding: 20px 0px;
         border: solid #e4e4e4 1px;
         border-radius: 8px;
+        background: #ffffff;
       }
       .margin-bottom{
         margin-bottom: 20px;
@@ -56,6 +58,11 @@
       .background-image{
         background-image: url(../imgs/css.png), url(../imgs/css.png);
       }
+      .background-clip{
+        padding: 10px;
+        border: 1px #e4e4e4 solid;
+        background-clip: content-box;
+      }
 
       /*effect to text*/
       .text-shadow{
@@ -66,6 +73,26 @@
       }
       .word-wrap>h6{
         display: inline-block;
+      }
+
+      /*gradient*/
+      .linear-gradient-giagonal {
+        background: linear-gradient(to right bottom, #a4c552, #d96b6a);
+      }
+      .linear-gradient-no-have {
+        background: linear-gradient(to right, rgba(164, 197, 82, 0), rgba(164, 197, 82, 1));
+      }
+      .linear-gradient-angle {
+        background: linear-gradient(45deg, #a4c552, #d96b6a);
+      }
+      .repeating-linear-gradient {
+        background: repeating-linear-gradient(to right, #a4c552 10%, #d96b6a 20%);
+      }
+      .radial-gradient-common {
+        background: radial-gradient(#a4c552, #d96b6a);
+      }
+      .radial-gradient-shape {
+        background: radial-gradient(circle, #a4c552, #d96b6a);
       }
     </style>
   </head>
@@ -85,14 +112,38 @@
       <div class="bas-box margin-bottom bColor background-origin">
         background-origin
       </div>
-      <div class="bas-box margin-bottom bClor background-image">
+      <div class="bas-box margin-bottom bColor background-image">
         two image
+      </div>
+      <div class="bas-box margin-bottom bColor background-clip">
+        background-clip
       </div>
     </div>
     <div class="container">
       <span class="text-shadow">我知道该怎么做</span>
       <div class="bas-box margin-bottom word-wrap">
         jashfjahfjjhajskdlfhjalsfhajskf <h6 class="gColor">word-warp</h6>
+      </div>
+    </div>
+    <div class="container">
+      <h4>线性渐变</h4>
+      <div class="bas-box margin-bottom linear-gradient-giagonal">
+        对角渐变
+      </div>
+      <div class="bas-box margin-bottom linear-gradient-no-have">
+        颜色重无到有
+      </div>
+      <div class="bas-box margin-bottom linear-gradient-angle">
+        角度
+      </div>
+      <div class="bas-box margin-bottom repeating-linear-gradient">
+        重复线性渐变
+      </div>
+      <h4>径向渐变</h4>
+      <div class="bas-box margin-bottom radial-gradient-common">
+      </div>
+      <div class="bas-box margin-bottom radial-gradient-shape">
+        circle
       </div>
     </div>
   </body>

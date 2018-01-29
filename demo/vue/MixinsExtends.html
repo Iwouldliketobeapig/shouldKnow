@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>mixins和extends的区别</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="tem2" class="demo"></div>
+    <div id="tem3" class="demo"></div>
+  </body>
+  <style>
+    .demo{
+      height: 40px;
+      width: 50px;
+      margin-top: 10px;
+      background: #e4e4e4;
+    }
+  </style>
+  <script>
+    var mixinsExtend = {
+      mounted () {
+        console.log(1);
+      }
+    }
+
+    let tem2 = new Vue({
+      el: "#tem2",
+      mixins: [mixinsExtend],
+      mounted () {
+        console.log(2);
+        console.log(this);
+      },
+      methods: {
+        test() {
+          console.log('tem2');
+        }
+      }
+    })
+
+    new Vue({
+      el: "#tem3",
+      extends: mixinsExtend,
+      mounted () {
+        console.log(3);
+      },
+      methods: {
+        test() {
+          console.log('tem3');
+        }
+      }
+    })
+  </script>
+</html>
