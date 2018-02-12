@@ -25,6 +25,7 @@
       .bas-box{
         width: 200px;
         height: 50px;
+        margin-bottom: 20px;
         border: 1px solid #e4e4e4;
       }
 
@@ -94,6 +95,17 @@
       .radial-gradient-shape {
         background: radial-gradient(circle, #a4c552, #d96b6a);
       }
+      .reapating-radial-gradient {
+        background: repeating-radial-gradient(#a4c552 10%, #d96b6a 20%);
+      }
+
+      /*transition*/
+      .transform-height:hover {
+        width: 20px !important;
+      }
+      .transform-height {
+        transition: width 1s;
+      }
     </style>
   </head>
   <body>
@@ -106,45 +118,52 @@
       </div>
     </div>
     <div class="container">
-      <div class="bas-box margin-bottom bColor background-size">
+      <div class="bas-box bColor background-size">
         background-size
       </div>
-      <div class="bas-box margin-bottom bColor background-origin">
+      <div class="bas-box bColor background-origin">
         background-origin
       </div>
-      <div class="bas-box margin-bottom bColor background-image">
+      <div class="bas-box bColor background-image">
         two image
       </div>
-      <div class="bas-box margin-bottom bColor background-clip">
+      <div class="bas-box bColor background-clip">
         background-clip
       </div>
     </div>
     <div class="container">
       <span class="text-shadow">我知道该怎么做</span>
-      <div class="bas-box margin-bottom word-wrap">
+      <div class="bas-box word-wrap">
         jashfjahfjjhajskdlfhjalsfhajskf <h6 class="gColor">word-warp</h6>
       </div>
     </div>
     <div class="container">
       <h4>线性渐变</h4>
-      <div class="bas-box margin-bottom linear-gradient-giagonal">
+      <div class="bas-box linear-gradient-giagonal">
         对角渐变
       </div>
-      <div class="bas-box margin-bottom linear-gradient-no-have">
+      <div class="bas-box linear-gradient-no-have">
         颜色重无到有
       </div>
-      <div class="bas-box margin-bottom linear-gradient-angle">
+      <div class="bas-box linear-gradient-angle">
         角度
       </div>
-      <div class="bas-box margin-bottom repeating-linear-gradient">
+      <div class="bas-box repeating-linear-gradient">
         重复线性渐变
       </div>
       <h4>径向渐变</h4>
-      <div class="bas-box margin-bottom radial-gradient-common">
+      <div class="bas-box radial-gradient-common">
       </div>
-      <div class="bas-box margin-bottom radial-gradient-shape">
+      <div class="bas-box radial-gradient-shape">
         circle
       </div>
+      <div class="bas-box reapating-radial-gradient">
+        重复径向渐变
+      </div>
     </div>
+    <div class="container">
+      <h4>transition</h4>
+      <div class="transform-height gColor" style="height: 100px; width: 200px"></div>
+    <div>
   </body>
 </html>
