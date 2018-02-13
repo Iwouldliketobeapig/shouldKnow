@@ -99,6 +99,20 @@
         background: repeating-radial-gradient(#a4c552 10%, #d96b6a 20%);
       }
 
+      /*transform*/
+      .transform-translate {
+        transform: translate(50px, 0px);
+      }
+      .transform-rotate {
+        transform: rotate(30deg)
+      }
+      .transform-scale {
+        transform: scale(1.5, 2)
+      }
+      .transform-skew {
+        transform: skew(10deg, 20deg)
+      }
+
       /*transition*/
       .transform-height:hover {
         width: 20px !important;
@@ -160,6 +174,13 @@
       <div class="bas-box reapating-radial-gradient">
         重复径向渐变
       </div>
+    </div>
+    <div class="container">
+      <h4>2D转换</h4>
+      <div class="yColor bas-box transform-translate">translate(60, 0)</div>
+      <div class="yColor bas-box transform-rotate">rotate(30deg)</div>
+      <div class="yColor bas-box transform-scale">scale(1.5, 2)</div>
+      <div class="yColor bas-box transform-skew">skew(1.5, 2)</div>
     </div>
     <div class="container">
       <h4>transition</h4>
