@@ -99,19 +99,34 @@
         background: repeating-radial-gradient(#a4c552 10%, #d96b6a 20%);
       }
 
-      /*transform*/
+      /*transform 2d*/
       .transform-translate {
         transform: translate(50px, 0px);
       }
       .transform-rotate {
-        transform: rotate(30deg)
+        transform: rotate(30deg);
       }
       .transform-scale {
-        transform: scale(1.5, 2)
+        transform: scale(1.5, 2);
       }
       .transform-skew {
-        transform: skew(10deg, 20deg)
+        transform: skew(10deg, 20deg);
       }
+      .transform-matrix-translate-scale {
+        transform: matrix(1.2, 0, 0, 1.2, 30, 30);
+      }
+      .transform-matrix-rotate {
+        transform: matrix(0.8660, -0.5, 0.5, 0.8860, 0, 0);
+      }
+
+      /*transform 3d*/
+      .transform-rotateX {
+        transform: rotateX(60deg);
+      }
+      .transform-rotateY {
+        transform: rotateY(60deg);
+      }
+      .out-box
 
       /*transition*/
       .transform-height:hover {
@@ -181,6 +196,15 @@
       <div class="yColor bas-box transform-rotate">rotate(30deg)</div>
       <div class="yColor bas-box transform-scale">scale(1.5, 2)</div>
       <div class="yColor bas-box transform-skew">skew(1.5, 2)</div>
+      <div class="yColor bas-box transform-matrix-translate-scale">matrix(1.2, 0, 0, 1.2, 30, 30)</div>
+      <div class="yColor bas-box transform-matrix-rotate">matrix(0.8660, -0.5, 0.5, 0.8860, 0, 0)</div>
+    </div>
+    <div class="container">
+      <h4>3D转换</h4>
+      <div class="rColor bas-box transform-rotateX">rotateX(30deg)</div>
+      <div class="rColor bas-box transform-rotateY">rotateX(30deg)</div>
+      <div class="out-box">
+      </div>
     </div>
     <div class="container">
       <h4>transition</h4>
