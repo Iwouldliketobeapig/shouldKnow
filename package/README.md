@@ -93,3 +93,32 @@
 */
 }
 ```
+
+2.也可以缩写，npm时会自动解析,例：
+```text
+    "Barney Rubble b@rubble.com (http://barnyrubble.tumblr.com/)"
+```
+
+#### files
+
+1.files的值是一个数组，内容是模块下的文件名或者文件夹名。如果是文件夹名，则文件夹下的所有文件都会被包含进来，可以在根目录下设置一个.npmignore文件，忽略掉一些文件。
+
+#### main
+
+1.main字段匹配一个文件名指向模块的主入口程序，如果你包的名字是'god'，别人install使用时require('god'),会返回主文件的export对象;
+
+#### bin
+
+1.很多模块有一个或者多个需要配置到path路径下的可执行模块，bin就是干这个的(*未理解清楚*)。
+
+#### man
+
+1.指定一个单一的文件或者一个文件数组供linux下的man命令查找文档地址。
+
+```text
+{
+ man: './man/doc.l'
+ //man: [ './man/doc.1', './man/foo.1' ]
+}
+```
+
