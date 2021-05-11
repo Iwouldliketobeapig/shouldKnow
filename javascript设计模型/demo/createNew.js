@@ -1,5 +1,6 @@
 function newClass (generate, ...arg) {
   const obj = Object.create(generate.prototype);
+  // obj.__proto__ = generate.prototype
   generate.apply(obj, arg);
   return obj;
 }
