@@ -1,0 +1,5 @@
+.idea
+webpack/public/*
+node_modules
+.cache
+dist

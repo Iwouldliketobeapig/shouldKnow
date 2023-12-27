@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>justify-content属性</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css"/>
+</head>
+<style>
+    .father-box{
+        display: flex;
+        width: 400px;
+        height: 50px;
+    }
+    .father-box>div{
+        width: 100px;
+        height: 50px;
+    }
+    .flex-start{
+        justify-content: flex-start;
+    }
+    .flex-end{
+        justify-content: flex-end;
+    }
+    .center{
+        justify-content: center;
+    }
+    .space-between{
+        justify-content: space-between;
+    }
+    .space-around{
+        justify-content: space-around;
+    }
+</style>
+<body>
+<h3>justify-content属性是决定项目在主轴的对齐方式</h3>
+<h5>我被设置了justify-content:flex-start属性</h5>
+<div class="father-box flex-start bColor" >
+    <div class="yColor">
+        <span>我是第一块</span>
+    </div>
+    <div class="gColor">
+        <span>我是第二块</span>
+    </div>
+    <div class="rColor">
+        <span>我是第三块</span>
+    </div>
+</div>
+<h5>我被设置了justify-content:flex-end属性</h5>
+<div class="father-box flex-end bColor">
+    <div class="yColor">
+        <span>我是第一块</span>
+    </div>
+    <div class="gColor">
+        <span>我是第二块</span>
+    </div>
+    <div class="rColor">
+        <span>我是第三块</span>
+    </div>
+</div>
+<h5>我被设置了justify-content:center属性</h5>
+<div class="father-box center bColor">
+    <div class="yColor">
+        <span>我是第一块</span>
+    </div>
+    <div class="gColor">
+        <span>我是第二块</span>
+    </div>
+    <div class="rColor">
+        <span>我是第三块</span>
+    </div>
+</div>
+<h5>我被设置了justify-content:space-between属性</h5>
+<div class="father-box space-between bColor">
+    <div class="yColor">
+        <span>我是第一块</span>
+    </div>
+    <div class="gColor">
+        <span>我是第二块</span>
+    </div>
+    <div class="rColor">
+        <span>我是第三块</span>
+    </div>
+</div>
+<h5>我被设置了justify-content:space-around属性</h5>
+<div class="father-box space-around bColor">
+    <div class="yColor">
+        <span>我是第一块</span>
+    </div>
+    <div class="gColor">
+        <span>我是第二块</span>
+    </div>
+    <div class="rColor">
+        <span>我是第三块</span>
+    </div>
+</div>
+</body>
+</html>

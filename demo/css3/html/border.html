@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <title>css3测试</title>
+    <link rel="stylesheet" type="text/css" href="../css/public.css">
+    <style>
+      body{
+        width: 1200px;
+        margin: 0 auto;
+        background: #eff5fc;
+      }
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0px;
+        padding: 20px 0px;
+        border: solid #e4e4e4 1px;
+        border-radius: 8px;
+        background: #ffffff;
+      }
+      .margin-bottom{
+        margin-bottom: 20px;
+      }
+      .bas-box{
+        width: 200px;
+        height: 50px;
+        margin-bottom: 20px;
+        border: 1px solid #e4e4e4;
+      }
+
+      /*border*/
+      .box-shadow{
+        width: 200px;
+        height: 50px;
+        box-shadow: 10px 10px 10px #888;
+      }
+      .border-image{
+        width: 200px;
+        height: 50px;
+        border:15px solid transparent;
+        border-image: url('../imgs/border.png') 30 30 round;
+      }
+      
+      /*background*/
+      .background-size{
+        background-image: url(../imgs/css.png);
+        background-size: 100px 50px;
+        background-repeat: no-repeat;
+      }
+      .background-origin{
+        padding: 10px;
+        border: 1px #e4e4e4 solid;
+        background-image: url(../imgs/css.png);
+        background-size: 100% 100%;
+        background-origin: content-box;
+        background-repeat: no-repeat;
+      }
+      .background-image{
+        background-image: url(../imgs/css.png), url(../imgs/css.png);
+      }
+      .background-clip{
+        padding: 10px;
+        border: 1px #e4e4e4 solid;
+        background-clip: content-box;
+      }
+
+      /*effect to text*/
+      .text-shadow{
+        text-shadow: 5px 5px 3px #58b9b2;
+      }
+      .word-wrap{
+        word-wrap: break-word;
+      }
+      .word-wrap>h6{
+        display: inline-block;
+      }
+
+      /*gradient*/
+      .linear-gradient-giagonal {
+        background: linear-gradient(to right bottom, #a4c552, #d96b6a);
+      }
+      .linear-gradient-no-have {
+        background: linear-gradient(to right, rgba(164, 197, 82, 0), rgba(164, 197, 82, 1));
+      }
+      .linear-gradient-angle {
+        background: linear-gradient(45deg, #a4c552, #d96b6a);
+      }
+      .repeating-linear-gradient {
+        background: repeating-linear-gradient(to right, #a4c552 10%, #d96b6a 20%);
+      }
+      .radial-gradient-common {
+        background: radial-gradient(#a4c552, #d96b6a);
+      }
+      .radial-gradient-shape {
+        background: radial-gradient(circle, #a4c552, #d96b6a);
+      }
+      .reapating-radial-gradient {
+        background: repeating-radial-gradient(#a4c552 10%, #d96b6a 20%);
+      }
+
+      /*transform 2d*/
+      .transform-translate {
+        transform: translate(100px, 0px);
+      }
+      .transform-rotate {
+        transform: rotate(30deg);
+      }
+      .transform-scale {
+        transform: scale(1.5, 2);
+      }
+      .transform-skew {
+        transform: skew(10deg, 20deg);
+      }
+      .transform-matrix-translate-scale {
+        transform: matrix(1.2, 0, 0, 1.2, 30, 30);
+      }
+      .transform-matrix-rotate {
+        transform: matrix(0.8660, -0.5, 0.5, 0.8860, 0, 0);
+      }
+
+      /*transform 3d*/
+      .transform-rotateX {
+        transform: rotateX(60deg);
+      }
+      .transform-rotateY {
+        transform: rotateY(60deg);
+      }
+      .transform-rotateZ {
+        transform: rotateZ(60deg);
+      }
+      .transform-translateX {
+        transform: translateX(50PX);
+      }
+
+      /*transition*/
+      .transform-height:hover {
+        width: 20px !important;
+      }
+      .transform-height {
+        transition: width 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box-shadow yColor margin-bottom">
+        <span>box-shadow</span>
+      </div>
+      <div class="border-image margin-bottom yColor">
+        border-image
+      </div>
+    </div>
+    <div class="container">
+      <div class="bas-box bColor background-size">
+        background-size
+      </div>
+      <div class="bas-box bColor background-origin">
+        background-origin
+      </div>
+      <div class="bas-box bColor background-image">
+        two image
+      </div>
+      <div class="bas-box bColor background-clip">
+        background-clip
+      </div>
+    </div>
+    <div class="container">
+      <span class="text-shadow">我知道该怎么做</span>
+      <div class="bas-box word-wrap">
+        jashfjahfjjhajskdlfhjalsfhajskf <h6 class="gColor">word-warp</h6>
+      </div>
+    </div>
+    <div class="container">
+      <h4>线性渐变</h4>
+      <div class="bas-box linear-gradient-giagonal">
+        对角渐变
+      </div>
+      <div class="bas-box linear-gradient-no-have">
+        颜色重无到有
+      </div>
+      <div class="bas-box linear-gradient-angle">
+        角度
+      </div>
+      <div class="bas-box repeating-linear-gradient">
+        重复线性渐变
+      </div>
+      <h4>径向渐变</h4>
+      <div class="bas-box radial-gradient-common">
+      </div>
+      <div class="bas-box radial-gradient-shape">
+        circle
+      </div>
+      <div class="bas-box reapating-radial-gradient">
+        重复径向渐变
+      </div>
+    </div>
+    <div class="container">
+      <h4>2D转换</h4>
+      <div class="yColor bas-box transform-translate">translate(100, 0)</div>
+      <div class="yColor bas-box transform-rotate">rotate(30deg)</div>
+      <div class="yColor bas-box transform-scale">scale(1.5, 2)</div>
+      <div class="yColor bas-box transform-skew">skew(1.5, 2)</div>
+      <div class="yColor bas-box transform-matrix-translate-scale">matrix(1.2, 0, 0, 1.2, 30, 30)</div>
+      <div class="yColor bas-box transform-matrix-rotate">matrix(0.8660, -0.5, 0.5, 0.8860, 0, 0)</div>
+    </div>
+    <div class="container">
+      <h4>3D转换</h4>
+      <div class="rColor bas-box transform-rotateX">rotateX(60deg)</div>
+      <div class="rColor bas-box transform-rotateY">rotateX(60deg)</div>
+      <div class="rColor bas-box transform-rotateZ">rotateX(60deg)</div>
+      <div class="rColor bas-box transform-translateX">translateX(50px)</div>
+      </div>
+    </div>
+    <div class="container">
+      <h4>transition</h4>
+      <div class="transform-height gColor" style="height: 100px; width: 200px"></div>
+    <div>
+  </body>
+</html>

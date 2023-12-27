@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>align-items</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+<style>
+    .father-box{
+        display: flex;
+        width: 400px;
+        height: 60px;
+    }
+    .flex-start{
+        align-items: flex-start;
+    }
+    .flex-end{
+        align-items: flex-end;
+    }
+    .center{
+        align-items: center;
+    }
+    .baseline{
+        align-items: baseline;
+    }
+    .baseline h5{
+        margin-top:20px;
+    }
+    .stretch{
+        align-items: stretch;
+    }
+</style>
+<body>
+    <h3>align-items属性决定项目在交叉轴上的对齐方式</h3>
+    <h5>我被设置了align-items:flex-start属性</h5>
+    <div class="father-box flex-start bColor">
+        <div class="yColor">我是第一块</div>
+        <div class="gColor">我是第二块</div>
+    </div>
+    <h5>我被设置了align-items:flex-end属性</h5>
+    <div class="father-box flex-end bColor">
+        <div class="yColor">我是第一块</div>
+        <div class="gColor">我是第二块</div>
+    </div>
+    <h5>我被设置了align-items:center属性</h5>
+    <div class="father-box center bColor">
+        <div class="yColor">我是第一块</div>
+        <div class="gColor">我是第二块</div>
+    </div>
+    <h5>我被设置了align-items:baseline属性</h5>
+    <div class="father-box baseline bColor">
+        <div class="yColor">我是第一块</div>
+        <div class="gColor">我是第二块</div>
+    </div>
+    <h5>我被设置了align-items:stretch属性</h5>
+    <div class="father-box stretch bColor">
+        <div class="yColor">我是第一块</div>
+        <div class="gColor">我是第二块</div>
+    </div>
+</body>
+</html>

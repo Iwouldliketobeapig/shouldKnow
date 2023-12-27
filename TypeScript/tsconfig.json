@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./demo",
+    "outDir": "./lib",
+    "declaration": true
+  }
+}

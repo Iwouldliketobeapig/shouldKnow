@@ -1,0 +1,27 @@
+{
+  "name": "know",
+  "version": "1.0.0",
+  "description": "some knowledges",
+  "main": "no",
+  "scripts": {
+    "commitmsg": "validate-commit-msg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iwouldliketobeapig/shouldKnow.git"
+  },
+  "keywords": [
+    "knowledges"
+  ],
+  "author": "dutao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iwouldliketobeapig/shouldKnow/issues"
+  },
+  "homepage": "https://github.com/Iwouldliketobeapig/shouldKnow#readme",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "parcel-plugin-vue": "^1.4.0",
+    "validate-commit-msg": "^2.14.0"
+  }
+}

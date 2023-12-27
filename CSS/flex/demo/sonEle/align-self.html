@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>align-self</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/public.css">
+</head>
+<style type="text/css">
+    .father-box{
+        display: flex;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+    }
+    .father-box>div{
+        margin-left: 20px;
+        width: 100px;
+        height: 200px;
+    }
+    .start{
+        align-self: flex-start;
+    }
+</style>
+<body>
+<h3>flex布局下的align-self属性决定该子元素在交叉轴上的对齐方式，优先级在父元素的align-items上。默认值为auto,即为继承父元素的align-items属性</h3>
+<h6>下面只举一个align-self: flex-start</h6>
+<div class="father-box bColor">
+    <div class="rColor">未设置align-self</div>
+    <div class="start yColor">align-self:start</div>
+</div>
+</body>
+</html>
