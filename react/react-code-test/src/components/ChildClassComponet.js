@@ -9,17 +9,17 @@ export default class ComponentWillMount extends React.PureComponent {
         }
     }
 
-    UNSAFE_componentWillMount () {
-        axios.get('/api/user', {
-            maxRedirects: 0
-        }).then(res => {
-            this.setState({ name: 'success' });
-            console.log(res, 111111)
-        }).catch(err => {
-            this.setState({ name: 'error' });
-            console.log(err, '--------------');
-        })
-    }
+    // UNSAFE_componentWillMount () {
+    //     axios.get('/api/user', {
+    //         maxRedirects: 0
+    //     }).then(res => {
+    //         this.setState({ name: 'success' });
+    //         console.log(res, 111111)
+    //     }).catch(err => {
+    //         this.setState({ name: 'error' });
+    //         console.log(err, '--------------');
+    //     })
+    // }
     // TAG 
 
     render () {

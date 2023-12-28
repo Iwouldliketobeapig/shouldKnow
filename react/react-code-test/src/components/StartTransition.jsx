@@ -1,4 +1,4 @@
-import { startTransition, useState, useEffect } from 'react';
+import { startTransition, useState, useEffect, Suspense } from 'react';
 
 const Index = () => {
   const [val, setVal] = useState();
@@ -17,10 +17,14 @@ const Index = () => {
     });
   }
 
-  return (<div>
-    <span>startTransition: {val}</span>
-    <button onClick={onButton}>startTransition</button>
-  </div>)
+  return (
+    <Suspense >
+      <div>
+        <span>startTransition: {val}</span>
+        <button onClick={onButton}>startTransition</button>
+      </div>
+    </Suspense >
+  )
 }
 
 export default Index;
