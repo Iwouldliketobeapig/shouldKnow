@@ -20,7 +20,7 @@ export default class ComponentWillMount extends React.PureComponent {
     //         console.log(err, '--------------');
     //     })
     // }
-    // TAG 
+    // TAG
 
     render () {
         return (

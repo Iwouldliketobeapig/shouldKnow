@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, lazy } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import axios from 'axios';
 import ChildClassComponent from './components/ChildClassComponet';
 import { Route, Routes, Link } from 'react-router-dom';
@@ -62,14 +62,14 @@ function App() {
     <div className="App">
       <div className="App-header">
         {
-          routes.map(({ path, name }) => <Link className='nav' key="path" to={path}>{name}</Link>)
+          routes.map(({ path, name }) => <Link className='nav' key={path} to={path}>{name}</Link>)
         }
       </div>
       {/* <div id="child">nihao</div> */}
       <Routes>
         <Route path='/' exact element={(<div>首页</div>)} />
         <Route path='/app1' exact element={(<div id="child">nihao</div>)} />
-        <Route path="/module1" exact element={<LazyModule1 />} />
+        <Route path="/module1" exact element={<Suspense fallback="loading"><LazyModule1 /></Suspense>} />
         <Route path="/starttrasnition" exact element={<StartTransition />} />
         <Route path="/postMessage" exact element={<PostMessage />} />
       </Routes>
