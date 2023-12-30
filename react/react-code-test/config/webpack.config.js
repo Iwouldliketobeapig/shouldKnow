@@ -27,6 +27,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { InjectManifest } = require('workbox-webpack-plugin');
+const AllAssetsPlugin = require('./webpack/allAssets');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
 
@@ -570,6 +571,7 @@ module.exports = function (webpackEnv) {
         swSrc: './src/sw.js',
         swDest: 'sw.js',
       }),
+      new AllAssetsPlugin(),
       // new BundleAnalyzerPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(

@@ -1,0 +1,1 @@
+window.test=["sw.js","sw.js.map","static/css/main.b2f7ad44.css","static/js/main.412f6bba.js","static/js/104.fa00bff7.chunk.js","static/js/787.33bcb1f5.chunk.js","static/js/main.412f6bba.js.LICENSE.txt","static/css/main.b2f7ad44.css.map","static/js/main.412f6bba.js.map","static/js/104.fa00bff7.chunk.js.map","static/js/787.33bcb1f5.chunk.js.map","index.html"];

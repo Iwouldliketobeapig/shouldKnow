@@ -6,7 +6,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 // import { importEntry } from 'import-html-entry';
 import StartTransition from './components/StartTransition';
 import PostMessage from './modules/PostMessage/index.tsx';
-const LazyModule1 = lazy(() => import('./modules/Module1/index.tsx'));
+const LazyModule1 = lazy(() => import(/* webpackPrefetch: true */'./modules/Module1/index.tsx'));
 
 const routes = [
   {
