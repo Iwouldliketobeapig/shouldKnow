@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "jsx": "react",
+    // 允许从没有设置默认到处得模块默认导入，并不影响代码输出，仅为了类型检查
     "allowSyntheticDefaultImports": true,
+    // 解析非相对模块得基准目录。
     "baseUrl": "./",
+    // 模块名基于baseUrl得路径映射的列表
     "paths": {
       "@src/*": ["./src/*"]
     }
