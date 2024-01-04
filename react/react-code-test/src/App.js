@@ -6,6 +6,8 @@ import { Route, Routes, Link } from 'react-router-dom';
 // import { importEntry } from 'import-html-entry';
 import StartTransition from './components/StartTransition';
 import PostMessage from './modules/PostMessage/index.tsx';
+import CaptureAndBubbing from './modules/captureAndBubbling';
+import ReduxDemo from './modules/ReduxDemo';
 const LazyModule1 = lazy(() => import(/* webpackPrefetch: true */'./modules/Module1/index.tsx'));
 
 const routes = [
@@ -28,6 +30,12 @@ const routes = [
   {
     path: '/postMessage',
     name: 'postMessage',
+  }, {
+    path: '/captureAndBubbing',
+    name: 'captureAndBubbing',
+  }, {
+    path: '/reduxDemo',
+    name: 'reduxDemo',
   }
 ]
 
@@ -72,6 +80,8 @@ function App() {
         <Route path="/module1" exact element={<Suspense fallback="loading"><LazyModule1 /></Suspense>} />
         <Route path="/starttrasnition" exact element={<StartTransition />} />
         <Route path="/postMessage" exact element={<PostMessage />} />
+        <Route path="/captureAndBubbing" exact element={<CaptureAndBubbing />} />
+        <Route path="/reduxDemo" exact element={<ReduxDemo />} />
       </Routes>
       <span className='blue red yellow'>{value}</span>
       <input value={value} onChange={(e) => setValue(e.target.value)} />
