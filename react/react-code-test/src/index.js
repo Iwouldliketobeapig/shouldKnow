@@ -46,6 +46,14 @@ start();
 //   }
 // });
 
+window.addEventListener("unhandledrejection", (event) => {
+  console.log(event, 'unhandledrejection');
+});
+
+window.addEventListener("error", (event) => {
+  console.log(event, 'error')
+})
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

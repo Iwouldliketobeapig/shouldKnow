@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense, lazy, useEffect } from 'react';
 import axios from 'axios';
 import ChildClassComponent from './components/ChildClassComponet';
 import { Route, Routes, Link } from 'react-router-dom';
@@ -47,13 +47,15 @@ function App() {
     setValue(+new Date());
   }
 
-  // useEffect(() => {
-  //   axios.post('/api/user').then(res => {
-  //     console.log(res);
-  //   }).catch(err => {
-  //     console.log(err, 111111111);
-  //   })
-  // }, [])
+  useEffect(() => {
+    axios.post('/api/user').then(res => {
+      console.log(res);
+    })
+  }, [])
+
+  useEffect(() => {
+    Promise.reject('error');
+  }, [])
 
   // useEffect(() => {
   //   importEntry('http://localhost:3001/').then(res => {
