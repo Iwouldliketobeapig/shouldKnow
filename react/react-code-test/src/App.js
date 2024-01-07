@@ -2,7 +2,7 @@ import './App.css';
 import { useState, Suspense, lazy, useEffect } from 'react';
 import axios from 'axios';
 import ChildClassComponent from './components/ChildClassComponet';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 // import { importEntry } from 'import-html-entry';
 import StartTransition from './components/StartTransition';
 import PostMessage from './modules/PostMessage/index.tsx';
@@ -41,6 +41,7 @@ const routes = [
 
 function App() {
   const [value, setValue] = useState('');
+  const navigate = useNavigate();
 
   // TODO 特使
   const onBtn = () => {
@@ -50,6 +51,13 @@ function App() {
   useEffect(() => {
     axios.post('/api/user').then(res => {
       console.log(res);
+    })
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("popstate", (event) => {
+      console.log(event, 'popstate');
+      // navigate('/login');
     })
   }, [])
 

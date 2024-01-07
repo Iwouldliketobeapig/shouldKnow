@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import singleSpaReact from 'single-spa-react';
 import { registerMicroApps, start } from 'qiankun';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useNavigate } from 'react-router-dom';
 import { createStore } from 'redux';
 import reducer from './store';
 import { Provider } from 'react-redux';
@@ -51,7 +51,7 @@ window.addEventListener("unhandledrejection", (event) => {
 });
 
 window.addEventListener("error", (event) => {
-  console.log(event, 'error')
+  console.log(event, 'error');
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
