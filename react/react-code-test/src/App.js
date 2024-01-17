@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, Suspense, lazy, useEffect } from 'react';
-import axios from 'axios';
+import axios from './utils/axios.ts';
 import ChildClassComponent from './components/ChildClassComponet';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 // import { importEntry } from 'import-html-entry';
@@ -8,6 +8,7 @@ import StartTransition from './components/StartTransition';
 import PostMessage from './modules/PostMessage/index.tsx';
 import CaptureAndBubbing from './modules/captureAndBubbling';
 import ReduxDemo from './modules/ReduxDemo';
+import EffectSort from './modules/EffectSort';
 const LazyModule1 = lazy(() => import(/* webpackPrefetch: true */'./modules/Module1/index.tsx'));
 
 const routes = [
@@ -36,11 +37,15 @@ const routes = [
   }, {
     path: '/reduxDemo',
     name: 'reduxDemo',
+  }, {
+    path: '/effectSort',
+    name: 'effectSort',
   }
 ]
 
 function App() {
   const [value, setValue] = useState('');
+  const [test, setTest] = useState('');
   const navigate = useNavigate();
 
   // TODO 特使
@@ -49,7 +54,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.post('/api/user').then(res => {
+    axios.post('/api/user', { data: 1 }, { test: 1234 }).then(res => {
       console.log(res);
     })
   }, [])
@@ -92,6 +97,7 @@ function App() {
         <Route path="/postMessage" exact element={<PostMessage />} />
         <Route path="/captureAndBubbing" exact element={<CaptureAndBubbing />} />
         <Route path="/reduxDemo" exact element={<ReduxDemo />} />
+        <Route path="/effectSort" exact element={<EffectSort />} />
       </Routes>
       <span className='blue red yellow'>{value}</span>
       <input value={value} onChange={(e) => setValue(e.target.value)} />

@@ -2,7 +2,6 @@ import React from 'react';
 
 const Index = () => {
   const onClick = (e) => {
-    debugger
     e.stopPropagation();
     console.log('onClick');
   }
