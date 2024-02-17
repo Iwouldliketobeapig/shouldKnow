@@ -150,6 +150,18 @@ module.exports = function (webpackEnv) {
                   // so that it honors browserslist config in package.json
                   // which in turn let's users customize the target behavior as per their needs.
                   'postcss-normalize',
+                  [
+                    'postcss-pxtorem', {
+                      rootValue: 16,
+                      unitPrecision: 5,
+                      propList: ['font', 'font-size', 'line-height', 'letter-spacing', 'height'],
+                      selectorBlackList: [],
+                      replace: true,
+                      mediaQuery: false,
+                      minPixelValue: 0,
+                      exclude: /node_modules/i
+                    }
+                  ],
                 ]
               : [
                   'tailwindcss',
@@ -316,6 +328,7 @@ module.exports = function (webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        'scheduler': 'D:\code\react\build\node_modules\scheduler',
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',

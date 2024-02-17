@@ -1,9 +1,8 @@
-import { startTransition, useState, useEffect, } from 'react';
+import { startTransition, useState, useEffect, useLayoutEffect, } from 'react';
 
 const Index = () => {
-  debugger
   const [val, setVal] = useState('默认值');
-  const [otherVal, setOtherVal] = useState('默认值');
+  const [otherVal, setOtherVal] = useState('默认值ohterVal');
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -12,6 +11,15 @@ const Index = () => {
   //     })
   //   }, 5000)
   // }, [])
+
+  useLayoutEffect(() => {
+    console.log(otherVal, 'useLayoutEffect------------------------------------');
+  }, []);
+
+  useEffect(() => {
+    debugger
+    console.log(val, 'useEffect-------------------------------------------');
+  }, [val])
 
   const onButton = () => {
     startTransition(() => {

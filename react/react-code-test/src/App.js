@@ -9,6 +9,7 @@ import PostMessage from './modules/PostMessage/index.tsx';
 import CaptureAndBubbing from './modules/captureAndBubbling';
 import ReduxDemo from './modules/ReduxDemo';
 import EffectSort from './modules/EffectSort';
+import CreateContext from './modules/CreateContext';
 const LazyModule1 = lazy(() => import(/* webpackPrefetch: true */'./modules/Module1/index.tsx'));
 
 const routes = [
@@ -40,6 +41,9 @@ const routes = [
   }, {
     path: '/effectSort',
     name: 'effectSort',
+  }, {
+    path: '/createContext',
+    name: 'createContext',
   }
 ]
 
@@ -47,6 +51,10 @@ function App() {
   const [value, setValue] = useState('');
   const [test, setTest] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(value);
+  }, [value])
 
   // TODO 特使
   const onBtn = () => {
@@ -98,11 +106,8 @@ function App() {
         <Route path="/captureAndBubbing" exact element={<CaptureAndBubbing />} />
         <Route path="/reduxDemo" exact element={<ReduxDemo />} />
         <Route path="/effectSort" exact element={<EffectSort />} />
+        <Route path="/createContext" exact element={<CreateContext />} />
       </Routes>
-      <span className='blue red yellow'>{value}</span>
-      <input value={value} onChange={(e) => setValue(e.target.value)} />
-      <button onClick={onBtn}>修改value123</button>
-      <ChildClassComponent />
     </div>
   );
 }

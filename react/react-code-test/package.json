@@ -146,6 +146,7 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^2.0.6",
+    "postcss-pxtorem": "^6.0.0",
     "webpack-bundle-analyzer": "^4.9.0",
     "workbox-webpack-plugin": "^7.0.0"
   }
