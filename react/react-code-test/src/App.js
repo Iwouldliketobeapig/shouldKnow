@@ -10,6 +10,9 @@ import CaptureAndBubbing from './modules/captureAndBubbling';
 import ReduxDemo from './modules/ReduxDemo';
 import EffectSort from './modules/EffectSort';
 import CreateContext from './modules/CreateContext';
+import ErrorTest from './modules/Error';
+import Css from './modules/Css';
+import CatchComponet from './components/Catch.tsx';
 const LazyModule1 = lazy(() => import(/* webpackPrefetch: true */'./modules/Module1/index.tsx'));
 
 const routes = [
@@ -44,6 +47,12 @@ const routes = [
   }, {
     path: '/createContext',
     name: 'createContext',
+  }, {
+    path: '/css',
+    name: 'css',
+  }, {
+    path: '/error',
+    name: 'error',
   }
 ]
 
@@ -90,25 +99,29 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
-      <div className="App-header">
-        {
-          routes.map(({ path, name }) => <Link className='nav' key={path} to={path}>{name}</Link>)
-        }
+    <CatchComponet>
+      <div className="App">
+        <div className="App-header">
+          {
+            routes.map(({ path, name }) => <Link className='nav' key={path} to={path}>{name}</Link>)
+          }
+        </div>
+        {/* <div id="child">nihao</div> */}
+        <Routes>
+          <Route path='/' exact element={(<div>首页</div>)} />
+          <Route path='/app1' exact element={(<div id="child">nihao</div>)} />
+          <Route path="/module1" exact element={<Suspense fallback="loading"><LazyModule1 /></Suspense>} />
+          <Route path="/starttrasnition" exact element={<StartTransition />} />
+          <Route path="/postMessage" exact element={<PostMessage />} />
+          <Route path="/captureAndBubbing" exact element={<CaptureAndBubbing />} />
+          <Route path="/reduxDemo" exact element={<ReduxDemo />} />
+          <Route path="/effectSort" exact element={<EffectSort />} />
+          <Route path="/createContext" exact element={<CreateContext />} />
+          <Route path="/css" exact element={<Css />} />
+          <Route path="/error" exact element={<ErrorTest />} />
+        </Routes>
       </div>
-      {/* <div id="child">nihao</div> */}
-      <Routes>
-        <Route path='/' exact element={(<div>首页</div>)} />
-        <Route path='/app1' exact element={(<div id="child">nihao</div>)} />
-        <Route path="/module1" exact element={<Suspense fallback="loading"><LazyModule1 /></Suspense>} />
-        <Route path="/starttrasnition" exact element={<StartTransition />} />
-        <Route path="/postMessage" exact element={<PostMessage />} />
-        <Route path="/captureAndBubbing" exact element={<CaptureAndBubbing />} />
-        <Route path="/reduxDemo" exact element={<ReduxDemo />} />
-        <Route path="/effectSort" exact element={<EffectSort />} />
-        <Route path="/createContext" exact element={<CreateContext />} />
-      </Routes>
-    </div>
+    </CatchComponet>
   );
 }
 

@@ -1,0 +1,7 @@
+.has:has(+ h2) {
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin-bottom: 56px;
+}
