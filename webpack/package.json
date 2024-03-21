@@ -19,7 +19,7 @@
     "json-loader": "^0.5.7",
     "path": "^0.12.7",
     "style-loader": "^0.18.2",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^5.0.4"
   },
   "author": "",
   "license": "ISC",
